@@ -13,17 +13,17 @@ struct Verse: Codable {
     let query : String?
     let canonical : String?
     let parsed : [[Int]]
-    let passage_meta : [PassageMeta]?
+    let passage_meta : [PassageMeta]
     let passages : [String]
 
 }
 
 struct PassageMeta : Codable {
     var canonical : String?
-    var chapter_start : [Int]?
-    var chapter_end : [Int]?
+    var chapter_start : [Int]
+    var chapter_end : [Int]
     var next_verse : Int?
     var prev_verse : Int?
-    var prev_chapter : [Int]?
-    var next_chapter : [Int]?
+    var prev_chapter : [Int]
+    var next_chapter : [Int]
 }

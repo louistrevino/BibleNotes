@@ -11,16 +11,20 @@ import Foundation
 class RestPostman {
 
     public var versesText : [String]
+    public var nextChapter: [Int]
+    public var prevChapter: [Int]
     let decoder = JSONDecoder()
     
     
     init() {
         versesText = []
+        nextChapter = []
+        prevChapter = []
     }
-    func getRequest(){
+    func getRequest(reference: String){
         let semaphore = DispatchSemaphore (value: 0)
 
-        var request = URLRequest(url: URL(string: "https://api.esv.org/v3/passage/text/?q=John+1&include-passage-references=false" +
+        var request = URLRequest(url: URL(string: "https://api.esv.org/v3/passage/text/?q=" + reference + "&include-passage-references=false" +
             "&include-footnotes=false" +
             "&horizontal-line-length=30" 
         )!,timeoutInterval: Double.infinity)
@@ -37,10 +41,13 @@ class RestPostman {
             do {
                 print(String(data: data, encoding: .ascii))
                 let decoder = JSONDecoder()
-                let verse = try decoder.decode(Verse.self, from: data)
+                let json = try decoder.decode(Verse.self, from: data)
                 print("-------- VERSE -------")
-                print(verse.passages)
-                self.versesText = verse.passages
+                print(json.passages)
+                self.versesText = json.passages
+                self.prevChapter = json.passage_meta[0].prev_chapter
+                self.nextChapter = json.passage_meta[0].next_chapter
+                
             } catch {
                 print(error)
             }
