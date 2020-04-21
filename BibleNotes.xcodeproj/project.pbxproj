@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA156DD4244B8F2B00EE6A8B /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA156DD3244B8F2B00EE6A8B /* NotesView.swift */; };
 		DA4E0537243AC8B400CF8904 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0536243AC8B400CF8904 /* AppDelegate.swift */; };
 		DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0538243AC8B400CF8904 /* SceneDelegate.swift */; };
 		DA4E053B243AC8B400CF8904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E053A243AC8B400CF8904 /* ContentView.swift */; };
@@ -15,6 +16,12 @@
 		DA4E0543243AC8BA00CF8904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4E0541243AC8BA00CF8904 /* LaunchScreen.storyboard */; };
 		DA4E054E243AC8BA00CF8904 /* BibleNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E054D243AC8BA00CF8904 /* BibleNotesTests.swift */; };
 		DA4E0559243AC8BA00CF8904 /* BibleNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0558243AC8BA00CF8904 /* BibleNotesUITests.swift */; };
+		DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */; };
+		DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E056B243AE02D00CF8904 /* Chapter.swift */; };
+		DA59243B244D508A002C3884 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243A244D508A002C3884 /* CanvasView.swift */; };
+		DA59243D244D51C3002C3884 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243C244D51C3002C3884 /* TextView.swift */; };
+		DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB309243AEFEE0033B318 /* SampleStructures.swift */; };
+		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA156DD3244B8F2B00EE6A8B /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		DA4E0533243AC8B400CF8904 /* BibleNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4E0536243AC8B400CF8904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA4E0538243AC8B400CF8904 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,12 @@
 		DA4E0554243AC8BA00CF8904 /* BibleNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4E0558243AC8BA00CF8904 /* BibleNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNotesUITests.swift; sourceTree = "<group>"; };
 		DA4E055A243AC8BA00CF8904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseStructures.swift; sourceTree = "<group>"; };
+		DA4E056B243AE02D00CF8904 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		DA59243A244D508A002C3884 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		DA59243C244D51C3002C3884 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		DACFB309243AEFEE0033B318 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
+		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +113,16 @@
 		DA4E0535243AC8B400CF8904 /* BibleNotes */ = {
 			isa = PBXGroup;
 			children = (
+				DA4E0568243ADF3E00CF8904 /* Controller */,
+				DA4E0567243ADF3800CF8904 /* View */,
+				DA4E0566243ADF2B00CF8904 /* Model */,
 				DA4E0536243AC8B400CF8904 /* AppDelegate.swift */,
 				DA4E0538243AC8B400CF8904 /* SceneDelegate.swift */,
-				DA4E053A243AC8B400CF8904 /* ContentView.swift */,
 				DA4E053C243AC8BA00CF8904 /* Assets.xcassets */,
 				DA4E0541243AC8BA00CF8904 /* LaunchScreen.storyboard */,
 				DA4E0544243AC8BA00CF8904 /* Info.plist */,
 				DA4E053E243AC8BA00CF8904 /* Preview Content */,
+				DACFB309243AEFEE0033B318 /* SampleStructures.swift */,
 			);
 			path = BibleNotes;
 			sourceTree = "<group>";
@@ -134,6 +151,34 @@
 				DA4E055A243AC8BA00CF8904 /* Info.plist */,
 			);
 			path = BibleNotesUITests;
+			sourceTree = "<group>";
+		};
+		DA4E0566243ADF2B00CF8904 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */,
+				DA4E056B243AE02D00CF8904 /* Chapter.swift */,
+				DACFB30B24426A020033B318 /* RestPostman.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA4E0567243ADF3800CF8904 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA4E053A243AC8B400CF8904 /* ContentView.swift */,
+				DA156DD3244B8F2B00EE6A8B /* NotesView.swift */,
+				DA59243A244D508A002C3884 /* CanvasView.swift */,
+				DA59243C244D51C3002C3884 /* TextView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA4E0568243ADF3E00CF8904 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +313,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4E0537243AC8B400CF8904 /* AppDelegate.swift in Sources */,
+				DA59243D244D51C3002C3884 /* TextView.swift in Sources */,
+				DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */,
+				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
+				DACFB30C24426A020033B318 /* RestPostman.swift in Sources */,
+				DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */,
 				DA4E053B243AC8B400CF8904 /* ContentView.swift in Sources */,
+				DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */,
+				DA156DD4244B8F2B00EE6A8B /* NotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BibleNotes/Preview Content\"";
+				DEVELOPMENT_TEAM = YXZZSCN5AN;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BibleNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BibleNotes/Preview Content\"";
+				DEVELOPMENT_TEAM = YXZZSCN5AN;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BibleNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
