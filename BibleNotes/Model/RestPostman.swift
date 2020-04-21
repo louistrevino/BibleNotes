@@ -13,13 +13,14 @@ class RestPostman {
     public var versesText : [String]
     public var nextChapter: [Int]
     public var prevChapter: [Int]
+    public var canonical : String
     let decoder = JSONDecoder()
-    
     
     init() {
         versesText = []
         nextChapter = []
         prevChapter = []
+        canonical = ""
     }
     func getRequest(reference: String){
         let semaphore = DispatchSemaphore (value: 0)
@@ -39,11 +40,12 @@ class RestPostman {
           }
             semaphore.signal()
             do {
-                print(String(data: data, encoding: .ascii))
+//                print(String(data: data, encoding: .ascii))
                 let decoder = JSONDecoder()
                 let json = try decoder.decode(Verse.self, from: data)
-                print("-------- VERSE -------")
-                print(json.passages)
+//                print("-------- VERSE -------")
+//                print(json.passage_meta)
+                self.canonical = json.canonical ?? ""
                 self.versesText = json.passages
                 self.prevChapter = json.passage_meta[0].prev_chapter
                 self.nextChapter = json.passage_meta[0].next_chapter

@@ -15,51 +15,45 @@ struct ContentView: View {
     @State var verses : [String]
     @State var prevChapter : [Int]
     @State var nextChapter : [Int]
+    @State var canonical : String
     let canvas = NotesView()
     
     var body: some View {
         HStack() {
             ScrollView(.vertical) {
                 VStack{
-                    Button(action: {
-                        var nextVerseString = ""
-                        for verseRef in self.prevChapter[0]...self.prevChapter[1] {
-                            nextVerseString.append("\(verseRef)")
-                            if(verseRef != self.prevChapter[1]){
-                                nextVerseString.append(",")
-                            }
+                    HStack{
+                        Button(action: {
+                            self.restP.getRequest(reference: "\(self.prevChapter[0])-\(self.prevChapter[1])")
+                            self.canonical = self.restP.canonical
+                            self.verses = self.restP.versesText
+                            self.nextChapter = self.restP.nextChapter
+                            self.prevChapter = self.restP.prevChapter
+                        }) {
+                            Text("Previous Chapter")
                         }
-                        self.restP.getRequest(reference: nextVerseString)
-                        self.verses = self.restP.versesText
-                        self.nextChapter = self.restP.nextChapter
-                        self.prevChapter = self.restP.prevChapter
-                    }) {
-                        Text("Get Text")
-                    }
-                    Button(action: {
-                        self.restP.getRequest(reference: "John+1")
-                        self.verses = self.restP.versesText
-                        self.nextChapter = self.restP.nextChapter
-                        self.prevChapter = self.restP.prevChapter
-                    }) {
-                        Text("Get John 1")
-                    }
-                    Button(action: {
-                        var nextVerseString = ""
-                        for verseRef in self.prevChapter[0]...self.prevChapter[1] {
-                            nextVerseString.append("\(verseRef)")
-                            if(verseRef != self.prevChapter[1]){
-                                nextVerseString.append(",")
-                            }
+                        Button(action: {
+                            self.restP.getRequest(reference: "John+1")
+                            self.canonical = self.restP.canonical
+                            self.verses = self.restP.versesText
+                            self.nextChapter = self.restP.nextChapter
+                            self.prevChapter = self.restP.prevChapter
+                        }) {
+                            Text("Get John 1")
                         }
-                        self.restP.getRequest(reference: nextVerseString)
-                        self.verses = self.restP.versesText
-                        self.nextChapter = self.restP.nextChapter
-                        self.prevChapter = self.restP.prevChapter
-                    }) {
-                        Text("Next Chapter")
+                        Button(action: {
+                            self.restP.getRequest(reference: "\(self.nextChapter[0])-\(self.nextChapter[1])")
+                            self.canonical = self.restP.canonical
+                            self.verses = self.restP.versesText
+                            self.nextChapter = self.restP.nextChapter
+                            self.prevChapter = self.restP.prevChapter
+                        }) {
+                            Text("Next Chapter")
+                        }
                     }
-                    
+                    Text(self.canonical)
+                        .font(.title)
+                    Spacer()
                     ForEach(self.verses, id: \.self) { verse in
                         Text(verse)
                     }
@@ -81,6 +75,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(verses: ["The Word Became Flesh"], prevChapter: [42024001, 42024053], nextChapter: [43002001, 43002025])
+        ContentView(verses: ["The Word Became Flesh"], prevChapter: [42024001, 42024053], nextChapter: [43002001, 43002025], canonical: "John 1")
     }
 }
