@@ -19,7 +19,6 @@ struct Verse: Codable {
 }
 
 struct PassageMeta : Codable {
-    
     var canonical : String?
     var chapter_start : [Int]?
     var chapter_end : [Int]?
