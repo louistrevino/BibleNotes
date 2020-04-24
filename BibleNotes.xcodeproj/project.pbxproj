@@ -20,6 +20,12 @@
 		DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E056B243AE02D00CF8904 /* Chapter.swift */; };
 		DA59243B244D508A002C3884 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243A244D508A002C3884 /* CanvasView.swift */; };
 		DA59243D244D51C3002C3884 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243C244D51C3002C3884 /* TextView.swift */; };
+		DA59244524528581002C3884 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243F24528581002C3884 /* DrawingViewController.swift */; };
+		DA59244624528581002C3884 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244024528581002C3884 /* DataModel.swift */; };
+		DA59244724528581002C3884 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244124528581002C3884 /* SignatureViewController.swift */; };
+		DA59244824528581002C3884 /* ThumbnailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */; };
+		DA59244924528581002C3884 /* PencilKitDrawNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */; };
+		DA59244A24528581002C3884 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */; };
 		DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB309243AEFEE0033B318 /* SampleStructures.swift */; };
 		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +67,12 @@
 		DA4E056B243AE02D00CF8904 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		DA59243A244D508A002C3884 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		DA59243C244D51C3002C3884 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		DA59243F24528581002C3884 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		DA59244024528581002C3884 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		DA59244124528581002C3884 /* SignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
+		DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewController.swift; sourceTree = "<group>"; };
+		DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PencilKitDrawNavigationController.swift; sourceTree = "<group>"; };
+		DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
 		DACFB309243AEFEE0033B318 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
 		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +125,7 @@
 		DA4E0535243AC8B400CF8904 /* BibleNotes */ = {
 			isa = PBXGroup;
 			children = (
+				DA59243E24528581002C3884 /* UIKit */,
 				DA4E0568243ADF3E00CF8904 /* Controller */,
 				DA4E0567243ADF3800CF8904 /* View */,
 				DA4E0566243ADF2B00CF8904 /* Model */,
@@ -180,6 +193,20 @@
 			);
 			path = Controller;
 			sourceTree = "<group>";
+		};
+		DA59243E24528581002C3884 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DA59243F24528581002C3884 /* DrawingViewController.swift */,
+				DA59244024528581002C3884 /* DataModel.swift */,
+				DA59244124528581002C3884 /* SignatureViewController.swift */,
+				DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */,
+				DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */,
+				DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */,
+			);
+			name = UIKit;
+			path = BibleNotes/UIKit;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -317,11 +344,17 @@
 				DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */,
 				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
+				DA59244A24528581002C3884 /* ThumbnailCollectionViewCell.swift in Sources */,
+				DA59244724528581002C3884 /* SignatureViewController.swift in Sources */,
+				DA59244624528581002C3884 /* DataModel.swift in Sources */,
 				DACFB30C24426A020033B318 /* RestPostman.swift in Sources */,
+				DA59244924528581002C3884 /* PencilKitDrawNavigationController.swift in Sources */,
+				DA59244524528581002C3884 /* DrawingViewController.swift in Sources */,
 				DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */,
 				DA4E053B243AC8B400CF8904 /* ContentView.swift in Sources */,
 				DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */,
 				DA156DD4244B8F2B00EE6A8B /* NotesView.swift in Sources */,
+				DA59244824528581002C3884 /* ThumbnailCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

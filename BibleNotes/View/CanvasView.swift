@@ -10,10 +10,61 @@ import SwiftUI
 import PencilKit
 
 struct CanvasView: UIViewRepresentable {
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    
+    }
+    
+    
+    class Coordinator : NSObject, PKCanvasViewDelegate, UINavigationControllerDelegate, PKToolPickerObserver {
+        var parent: CanvasView
+        
+        init(_ parent : CanvasView) {
+            self.parent = parent
+        }
+        
+        
+        func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {
+            if let window = canvasView.inputView?.window, let toolPicker = PKToolPicker.shared(for: window) {
+                toolPicker.setVisible(true, forFirstResponder: canvasView)
+                toolPicker.addObserver(canvasView)
+                toolPicker.addObserver(self)
+                
+                updateLayout(canvasView, for: toolPicker)
+                canvasView.becomeFirstResponder()
+            }
+        }
+        
+        func updateLayout(_ canvasView : PKCanvasView, for toolPicker: PKToolPicker) {
+            let obscuredFrame = toolPicker.frameObscured(in: canvasView.inputView!)
+            
+            // If the tool picker is floating over the canvas, it also contains
+            // undo and redo buttons.
+            if obscuredFrame.isNull {
+                canvasView.contentInset = .zero
+//                navigationItem.leftBarButtonItems = []
+            }
+            
+            // Otherwise, the bottom of the canvas should be inset to the top of the
+            // tool picker, and the tool picker no longer displays its own undo and
+            // redo buttons.
+            else {
+                canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: canvasView.i.bounds.maxY - obscuredFrame.minY, right: 0)
+//                navigationItem.leftBarButtonItems = [undoBarButtonitem, redoBarButtonItem]
+            }
+            canvasView.scrollIndicatorInsets = canvasView.contentInset
+        }
+        
+    }
+    
+//    @Binding var drawing : PKDrawing?
+    @Environment(\.presentationMode) var presentationMode
     
     func makeUIView(context: Context) -> PKCanvasView {
-        PKCanvasView(frame: .zero)
+        let canvas = PKCanvasView(frame: .zero)
+        canvas.delegate = context.coordinator
         
+        return canvas
     }
     
     func updateUIView(_ uiView: PKCanvasView, context: Context) {
@@ -27,8 +78,8 @@ struct CanvasView: UIViewRepresentable {
     }
 }
 
-struct CanvasView_Previews: PreviewProvider {
-    static var previews: some View {
-        CanvasView()
-    }
-}
+//struct CanvasView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CanvasView()
+//    }
+//}

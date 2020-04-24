@@ -12,7 +12,6 @@ import PencilKit
 struct NotesView: View {
     let canvas = CanvasView()
     @State var showCanvas = true
-    
     var body: some View {
         VStack {
             if(showCanvas) {
