@@ -46,9 +46,13 @@ class RestPostman {
 //                print("-------- VERSE -------")
 //                print(json.passage_meta)
                 self.canonical = json.canonical ?? ""
-                self.versesText = json.passages
+//                self.versesText = json.passages
                 self.prevChapter = json.passage_meta[0].prev_chapter
                 self.nextChapter = json.passage_meta[0].next_chapter
+                
+                // insert scanner here for verses
+                self.versesText = json.passages[0].components(separatedBy: "[")
+                
                 
             } catch {
                 print(error)
@@ -58,6 +62,9 @@ class RestPostman {
 
         task.resume()
         semaphore.wait()
+        
+
+        
     }
     
 }
