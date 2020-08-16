@@ -16,55 +16,66 @@ struct ContentView: View {
     @State var prevChapter : [Int]
     @State var nextChapter : [Int]
     @State var canonical : String
-    let canvas = NotesView()
+    @State var showCanvas = false
+    @State private var canvas = CanvasView()
+    @State private var showPicker = false
     
     var body: some View {
-        HStack() {
-            ScrollView(.vertical) {
-                VStack{
-                    HStack{
-                        Button(action: {
-                            self.restP.getRequest(reference: "\(self.prevChapter[0])-\(self.prevChapter[1])")
-                            self.canonical = self.restP.canonical
-                            self.verses = self.restP.versesText
-                            self.nextChapter = self.restP.nextChapter
-                            self.prevChapter = self.restP.prevChapter
-                        }) {
-                            Text("Previous Chapter")
-                        }
-                        Button(action: {
-                            self.restP.getRequest(reference: "John+1")
-                            self.canonical = self.restP.canonical
-                            self.verses = self.restP.versesText
-                            self.nextChapter = self.restP.nextChapter
-                            self.prevChapter = self.restP.prevChapter
-                        }) {
-                            Text("Get John 1")
-                        }
-                        Button(action: {
-                            self.restP.getRequest(reference: "\(self.nextChapter[0])-\(self.nextChapter[1])")
-                            self.canonical = self.restP.canonical
-                            self.verses = self.restP.versesText
-                            self.nextChapter = self.restP.nextChapter
-                            self.prevChapter = self.restP.prevChapter
-                        }) {
-                            Text("Next Chapter")
-                        }
-                    }
-                    Text(self.canonical)
-                        .font(.title)
-                    Spacer()
-                    ForEach(self.verses, id: \.self) { verse in
-                        Text(verse)
-                    }
+        VStack() {
+            HStack{
+                Button(action: {
+                    self.restP.getRequest(reference: "\(self.prevChapter[0])-\(self.prevChapter[1])")
+                    self.canonical = self.restP.canonical
+                    self.verses = self.restP.versesText
+                    self.nextChapter = self.restP.nextChapter
+                    self.prevChapter = self.restP.prevChapter
+                }) {
+                    Text("Previous Chapter")
                 }
-                .frame(width: 500)
-                    .padding()
-                
+                Button(action: {
+                    self.restP.getRequest(reference: "John+1")
+                    self.canonical = self.restP.canonical
+                    self.verses = self.restP.versesText
+                    self.nextChapter = self.restP.nextChapter
+                    self.prevChapter = self.restP.prevChapter
+                }) {
+                    Text("Get John 1")
+                }
+                Button(action: {
+                    self.restP.getRequest(reference: "\(self.nextChapter[0])-\(self.nextChapter[1])")
+                    self.canonical = self.restP.canonical
+                    self.verses = self.restP.versesText
+                    self.nextChapter = self.restP.nextChapter
+                    self.prevChapter = self.restP.prevChapter
+                }) {
+                    Text("Next Chapter")
+                }
+                Button(action: {
+                    self.showCanvas.toggle()
+                    self.showPicker.toggle()
+                }) {
+                    Text("Toggle Canvas")
+                }
             }
             
-            VStack{
-                NotesView()
+            if(!showCanvas) {
+                ZStack {
+                    Canvas(canvasView: $canvas, isActive: $showPicker)
+                }
+            } else {
+                ScrollView(.vertical) {
+                    VStack{
+                        Text(self.canonical)
+                            .font(.title)
+                        Spacer()
+                        ForEach(self.verses, id: \.self) { verse in
+                            Text(verse)
+                        }
+                    }
+                    .frame(width: 500)
+                        .padding()
+                    
+                }
             }
             
         }

@@ -10,7 +10,8 @@ import SwiftUI
 import PencilKit
 
 struct NotesView: View {
-    let canvas = CanvasView()
+//    let canvas = CanvasView()
+    @State var window : UIWindow?
     @State var showCanvas = true
     var body: some View {
         VStack {
@@ -28,7 +29,7 @@ struct NotesView: View {
                         Text("Hide Canvas")
                     }
                 }
-                canvas
+//                canvas
                     
             } else {
                 HStack(){

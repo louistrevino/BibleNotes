@@ -26,6 +26,7 @@
 		DA59244824528581002C3884 /* ThumbnailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */; };
 		DA59244924528581002C3884 /* PencilKitDrawNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */; };
 		DA59244A24528581002C3884 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */; };
+		DA59244C24552DAD002C3884 /* CanvasWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244B24552DAD002C3884 /* CanvasWrapper.swift */; };
 		DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB309243AEFEE0033B318 /* SampleStructures.swift */; };
 		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewController.swift; sourceTree = "<group>"; };
 		DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PencilKitDrawNavigationController.swift; sourceTree = "<group>"; };
 		DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA59244B24552DAD002C3884 /* CanvasWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasWrapper.swift; sourceTree = "<group>"; };
 		DACFB309243AEFEE0033B318 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
 		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +185,7 @@
 				DA156DD3244B8F2B00EE6A8B /* NotesView.swift */,
 				DA59243A244D508A002C3884 /* CanvasView.swift */,
 				DA59243C244D51C3002C3884 /* TextView.swift */,
+				DA59244B24552DAD002C3884 /* CanvasWrapper.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				DA59243D244D51C3002C3884 /* TextView.swift in Sources */,
 				DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */,
 				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
+				DA59244C24552DAD002C3884 /* CanvasWrapper.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
 				DA59244A24528581002C3884 /* ThumbnailCollectionViewCell.swift in Sources */,
 				DA59244724528581002C3884 /* SignatureViewController.swift in Sources */,
