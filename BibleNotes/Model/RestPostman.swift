@@ -18,7 +18,7 @@ class RestPostman : ObservableObject {
     let decoder = JSONDecoder()
     
     init() {
-        versesText = []
+        chapter = Chapter()
         nextChapter = []
         prevChapter = []
         canonical = ""
@@ -27,7 +27,10 @@ class RestPostman : ObservableObject {
 
         var request = URLRequest(url: URL(string: "https://api.esv.org/v3/passage/html/?q=" + reference + "&include-passage-references=false" +
             "&include-footnotes=false" +
-            "&horizontal-line-length=30" 
+            "&horizontal-line-length=30" +
+            "&include-heading-horizontal-lines=true" +
+            "&include-passage-horizontal-lines=false" +
+            "&include-headings=false"
         )!,timeoutInterval: Double.infinity)
         request.addValue("Token 56785c18d9889f1740364b845f4a6b09fb71e695", forHTTPHeaderField: "Authorization")
 
@@ -47,6 +50,27 @@ class RestPostman : ObservableObject {
                     self.prevChapter = json.passage_meta[0].prev_chapter
                     self.nextChapter = json.passage_meta[0].next_chapter
                 }
+                
+                // insert scanner here for verses
+//                self.versesText = json.passages[0].components(separatedBy: "[")
+                var i = 0
+                print("===============VERSE TEXT==============\n" + json.passages[0]
+                    + "\n===========END VERSE TEXT ==============\n")
+//                for verse in json.passages[0].components(separatedBy: "[") {
+//                    self.chapter.verses?.append(VerseObject())
+//                    self.chapter.verses?[i].text = verse
+//                    i+=1
+//                    self.chapter.verses?[i].verseNumber = String(i)
+//                }
+//
+                let htmlData = NSString(string: json.passages[0]).data(using: String.Encoding.unicode.rawValue)
+                let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
+                        NSAttributedString.DocumentType.html]
+                let attributedString = try? NSMutableAttributedString(data: htmlData ?? Data(),
+                                                                          options: options,
+                                                                          documentAttributes: nil)
+                self.chapter.verses![0].text = attributedString!.string
+                
             } catch {
                 print(error)
             }
