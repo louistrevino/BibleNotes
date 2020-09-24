@@ -9,50 +9,34 @@
 import SwiftUI
 import PencilKit
 
-struct NotesView: View {
-//    let canvas = CanvasView()
-    @State var window : UIWindow?
-    @State var showCanvas = true
+struct NotesCanvasView: View {
+//    @State var views : [NoteView<>]?
     var body: some View {
-        VStack {
-            if(showCanvas) {
-                HStack(){
-                    Button(action: {
-                        
-                    }){
-                        Text("Erase")
-                    }
-                    
-                    Button(action: {
-                        self.showCanvas = false
-                    }) {
-                        Text("Hide Canvas")
-                    }
-                }
-//                canvas
-                    
-            } else {
-                HStack(){
-                    Button(action: {
-                        
-                    }){
-                        Text("Erase")
-                    }
-                    
-                    Button(action: {
-                        self.showCanvas = true
-                    }) {
-                        Text("Show Canvas")
-                    }
-                }
-                Text("No Canvas")
-            }
-        }
+//        ScrollView() {
+//            ForEach(views? ?? [NoteView()]) { view in
+//                view
+//            }
+        Text("test")
+//        }
     }
 }
 
-struct NotesView_Previews: PreviewProvider {
+struct NotesCanvasView_Previews: PreviewProvider {
     static var previews: some View {
-        NotesView()
+        NotesCanvasView()
     }
+}
+
+struct NoteView<Content: View> : View {
+    
+    var canvas : Canvas
+    var scriptureView : ScriptureView
+    var body: some View {
+        if (canvas != nil) {
+            canvas
+        } else {
+            scriptureView
+        }
+    }
+    
 }
