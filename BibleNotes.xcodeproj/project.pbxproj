@@ -19,16 +19,12 @@
 		DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */; };
 		DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E056B243AE02D00CF8904 /* Chapter.swift */; };
 		DA59243B244D508A002C3884 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243A244D508A002C3884 /* CanvasView.swift */; };
-		DA59243D244D51C3002C3884 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243C244D51C3002C3884 /* TextView.swift */; };
-		DA59244524528581002C3884 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243F24528581002C3884 /* DrawingViewController.swift */; };
-		DA59244624528581002C3884 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244024528581002C3884 /* DataModel.swift */; };
-		DA59244724528581002C3884 /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244124528581002C3884 /* SignatureViewController.swift */; };
-		DA59244824528581002C3884 /* ThumbnailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */; };
-		DA59244924528581002C3884 /* PencilKitDrawNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */; };
-		DA59244A24528581002C3884 /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */; };
-		DA59244C24552DAD002C3884 /* CanvasWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59244B24552DAD002C3884 /* CanvasWrapper.swift */; };
 		DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB309243AEFEE0033B318 /* SampleStructures.swift */; };
 		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
+		DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2E395251C5A2A00A8951C /* DataModel.swift */; };
+		DAF63E2D24E911DF00970027 /* DrawingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */; };
+		DAF63E2F24E9F4C200970027 /* VerseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF63E2E24E9F4C200970027 /* VerseObject.swift */; };
+		DAF8A55B24FCB2A700C30458 /* ScriptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,16 +63,12 @@
 		DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseStructures.swift; sourceTree = "<group>"; };
 		DA4E056B243AE02D00CF8904 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		DA59243A244D508A002C3884 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
-		DA59243C244D51C3002C3884 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		DA59243F24528581002C3884 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
-		DA59244024528581002C3884 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		DA59244124528581002C3884 /* SignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
-		DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewController.swift; sourceTree = "<group>"; };
-		DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PencilKitDrawNavigationController.swift; sourceTree = "<group>"; };
-		DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
-		DA59244B24552DAD002C3884 /* CanvasWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasWrapper.swift; sourceTree = "<group>"; };
 		DACFB309243AEFEE0033B318 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
 		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
+		DAE2E395251C5A2A00A8951C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		DAF63E2C24E911DE00970027 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DAF63E2E24E9F4C200970027 /* VerseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseObject.swift; sourceTree = "<group>"; };
+		DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +119,6 @@
 		DA4E0535243AC8B400CF8904 /* BibleNotes */ = {
 			isa = PBXGroup;
 			children = (
-				DA59243E24528581002C3884 /* UIKit */,
 				DA4E0568243ADF3E00CF8904 /* Controller */,
 				DA4E0567243ADF3800CF8904 /* View */,
 				DA4E0566243ADF2B00CF8904 /* Model */,
@@ -138,6 +129,7 @@
 				DA4E0544243AC8BA00CF8904 /* Info.plist */,
 				DA4E053E243AC8BA00CF8904 /* Preview Content */,
 				DACFB309243AEFEE0033B318 /* SampleStructures.swift */,
+				DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */,
 			);
 			path = BibleNotes;
 			sourceTree = "<group>";
@@ -174,6 +166,8 @@
 				DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */,
 				DA4E056B243AE02D00CF8904 /* Chapter.swift */,
 				DACFB30B24426A020033B318 /* RestPostman.swift */,
+				DAF63E2E24E9F4C200970027 /* VerseObject.swift */,
+				DAE2E395251C5A2A00A8951C /* DataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,8 +178,7 @@
 				DA4E053A243AC8B400CF8904 /* ContentView.swift */,
 				DA156DD3244B8F2B00EE6A8B /* NotesView.swift */,
 				DA59243A244D508A002C3884 /* CanvasView.swift */,
-				DA59243C244D51C3002C3884 /* TextView.swift */,
-				DA59244B24552DAD002C3884 /* CanvasWrapper.swift */,
+				DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,20 +189,6 @@
 			);
 			path = Controller;
 			sourceTree = "<group>";
-		};
-		DA59243E24528581002C3884 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				DA59243F24528581002C3884 /* DrawingViewController.swift */,
-				DA59244024528581002C3884 /* DataModel.swift */,
-				DA59244124528581002C3884 /* SignatureViewController.swift */,
-				DA59244224528581002C3884 /* ThumbnailCollectionViewController.swift */,
-				DA59244324528581002C3884 /* PencilKitDrawNavigationController.swift */,
-				DA59244424528581002C3884 /* ThumbnailCollectionViewCell.swift */,
-			);
-			name = UIKit;
-			path = BibleNotes/UIKit;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -274,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Louis Trevino";
 				TargetAttributes = {
 					DA4E0532243AC8B400CF8904 = {
@@ -342,23 +321,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF63E2F24E9F4C200970027 /* VerseObject.swift in Sources */,
 				DA4E0537243AC8B400CF8904 /* AppDelegate.swift in Sources */,
-				DA59243D244D51C3002C3884 /* TextView.swift in Sources */,
 				DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */,
 				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
-				DA59244C24552DAD002C3884 /* CanvasWrapper.swift in Sources */,
+				DAF8A55B24FCB2A700C30458 /* ScriptureView.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
-				DA59244A24528581002C3884 /* ThumbnailCollectionViewCell.swift in Sources */,
-				DA59244724528581002C3884 /* SignatureViewController.swift in Sources */,
-				DA59244624528581002C3884 /* DataModel.swift in Sources */,
 				DACFB30C24426A020033B318 /* RestPostman.swift in Sources */,
-				DA59244924528581002C3884 /* PencilKitDrawNavigationController.swift in Sources */,
-				DA59244524528581002C3884 /* DrawingViewController.swift in Sources */,
 				DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */,
+				DAF63E2D24E911DF00970027 /* DrawingDataModel.xcdatamodeld in Sources */,
+				DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */,
 				DA4E053B243AC8B400CF8904 /* ContentView.swift in Sources */,
 				DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */,
 				DA156DD4244B8F2B00EE6A8B /* NotesView.swift in Sources */,
-				DA59244824528581002C3884 /* ThumbnailCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +406,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -491,6 +467,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -679,6 +656,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DAF63E2C24E911DE00970027 /* Model.xcdatamodel */,
+			);
+			currentVersion = DAF63E2C24E911DE00970027 /* Model.xcdatamodel */;
+			path = DrawingDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA4E052B243AC8B300CF8904 /* Project object */;
 }
