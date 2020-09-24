@@ -8,13 +8,11 @@
 
 import Foundation
 
-struct Chapter : Decodable {
-    enum Category: String, Decodable {
-        case swift, combine, debugging, xcode
-    }
+struct Chapter : Hashable {
 
-    let title: String
-    let url: URL
-    let category: Category
-    let views: Int
+    public var verses : [VerseObject]?
+    
+    init(){
+        verses = [VerseObject()]
+    }
 }
