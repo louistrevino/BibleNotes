@@ -12,14 +12,13 @@ import PencilKit
 struct ContentView: View {
     @State private var selection = 0
     let restP = RestPostman()
-    @State var chapter : Chapter
+    @State var verses : [String]
     @State var prevChapter : [Int]
     @State var nextChapter : [Int]
     @State var canonical : String
     @State var showCanvas = false
     @State private var canvas = CanvasView()
     @State private var showPicker = false
-    @State var verseNotes = [VerseObject]()
     
     var body: some View {
         VStack{
@@ -27,7 +26,7 @@ struct ContentView: View {
                 Button(action: {
                     self.restP.getRequest(reference: "\(self.prevChapter[0])-\(self.prevChapter[1])")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    self.verses = self.restP.versesText
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
@@ -36,7 +35,7 @@ struct ContentView: View {
                 Button(action: {
                     self.restP.getRequest(reference: "John+1")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    self.verses = self.restP.versesText
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
@@ -45,7 +44,7 @@ struct ContentView: View {
                 Button(action: {
                     self.restP.getRequest(reference: "\(self.nextChapter[0])-\(self.nextChapter[1])")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    self.verses = self.restP.versesText
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
@@ -75,16 +74,11 @@ struct ContentView: View {
                         .padding()
                     
                 }
+                if(!showCanvas) {
+                    Canvas(canvasView: $canvas, isActive: $showPicker, currentCanvas: $canonical).animation(.easeInOut(duration: 0.5))
+                }
             }
             
         }
-
-}
-
-struct VerseNote : View {
-    @State var verseText = ""
-    var body: some View {
-        Text(verseText)
     }
-    
 }

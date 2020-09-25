@@ -11,14 +11,14 @@ import SwiftUI
 struct ScriptureView: View {
     @State private var selection = 0
     let restP = RestPostman()
-    @State var chapter : Chapter
+    @State var verses : [String]
     @State var prevChapter : [Int]
     @State var nextChapter : [Int]
     @State var canonical : String
     @State var showCanvas = false
     @State private var canvas = CanvasView()
     @State private var showPicker = false
-    @State var verseNotes = [VerseObject]()
+    
     
     var body: some View {
         VStack{
@@ -26,7 +26,7 @@ struct ScriptureView: View {
                 Button(action: {
                     self.restP.getRequest(reference: "\(self.prevChapter[0])-\(self.prevChapter[1])")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
@@ -35,7 +35,7 @@ struct ScriptureView: View {
                 Button(action: {
                     self.restP.getRequest(reference: "John+1")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
@@ -44,7 +44,7 @@ struct ScriptureView: View {
                 Button(action: {
                     self.restP.getRequest(reference: "\(self.nextChapter[0])-\(self.nextChapter[1])")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
@@ -61,19 +61,12 @@ struct ScriptureView: View {
             
             HStack{
                 ScrollView(.vertical) {
-                    VStack(alignment: .leading){
-                         Text(self.canonical)
-                             .font(.title)
-                         Spacer()
-                        ForEach(self.chapter.verses!, id: \.self) { verse in
-                            Text(verse.text)
-                                .onTapGesture {
-                                    verseNotes.append(verse)
-                                    print("*" + verse.text + "*")
-                                }
-
-                        }
-                     }
+                    Text(self.canonical)
+                        .font(.title)
+                    Spacer()
+                    ForEach(self.verses, id: \.self) { verse in
+                        Text(verse)
+                    }
                      .frame(width: 500)
                          .padding()
                  }

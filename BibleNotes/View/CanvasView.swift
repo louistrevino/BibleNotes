@@ -13,6 +13,7 @@ struct Canvas: UIViewRepresentable {
 
     @Binding var canvasView: CanvasView
     @Binding var isActive: Bool
+    @Binding var currentCanvas: String
     
     func makeUIView(context: Context) -> CanvasView {
         
