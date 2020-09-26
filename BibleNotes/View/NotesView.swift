@@ -30,12 +30,12 @@ struct NotesCanvasView_Previews: PreviewProvider {
 struct NoteView<Content: View> : View {
     
     var canvas : Canvas
-    var scriptureView : ScriptureView
+//    var scriptureView : ScriptureView
     var body: some View {
         if (canvas != nil) {
             canvas
         } else {
-            scriptureView
+//            scriptureView
         }
     }
     

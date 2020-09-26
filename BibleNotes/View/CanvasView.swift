@@ -11,9 +11,10 @@ import PencilKit
 
 struct Canvas: UIViewRepresentable {
 
-    @Binding var canvasView: CanvasView
-    @Binding var isActive: Bool
-    @Binding var currentCanvas: String
+    @Binding var canvasView : CanvasView
+    @Binding var isActive = false
+    @Binding var currentCanvas = ""
+    @Binding var dmc : DataModelController
     
     func makeUIView(context: Context) -> CanvasView {
         
@@ -21,7 +22,17 @@ struct Canvas: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: CanvasView, context: Context) {
-        
+        print("isActive = \(isActive)")
+        print("currentCanvas = \(currentCanvas)")
+        print("dmc.drawings = \(dmc.drawings)")
+        if dmc.drawings[currentCanvas] == nil {
+            dmc.newDrawing(reference: currentCanvas)
+            print("drawings = \(dmc.drawings)")
+
+        }
+        print("currentDrawing = \(dmc.drawings[currentCanvas])")
+        canvasView.drawing = dmc.drawings[currentCanvas] ?? PKDrawing()
+
         guard let window = uiView.window else { return }
 
         let picker = PKToolPicker.shared(for: window)
@@ -30,11 +41,12 @@ struct Canvas: UIViewRepresentable {
         DispatchQueue.main.async {
             uiView.becomeFirstResponder()
         }
-        
+
     }
 }
 
 class CanvasView: PKCanvasView {
+    
     override var canBecomeFirstResponder: Bool { true }
 }
 //struct CanvasView_Previews: PreviewProvider {

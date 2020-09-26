@@ -22,7 +22,6 @@
 		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
 		DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2E395251C5A2A00A8951C /* DataModel.swift */; };
 		DAF63E2D24E911DF00970027 /* DrawingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */; };
-		DAF8A55B24FCB2A700C30458 /* ScriptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
 		DAE2E395251C5A2A00A8951C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DAF63E2C24E911DE00970027 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +170,6 @@
 				DA4E053A243AC8B400CF8904 /* ContentView.swift */,
 				DA156DD3244B8F2B00EE6A8B /* NotesView.swift */,
 				DA59243A244D508A002C3884 /* CanvasView.swift */,
-				DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,7 +314,6 @@
 			files = (
 				DA4E0537243AC8B400CF8904 /* AppDelegate.swift in Sources */,
 				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
-				DAF8A55B24FCB2A700C30458 /* ScriptureView.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
 				DACFB30C24426A020033B318 /* RestPostman.swift in Sources */,
 				DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */,
