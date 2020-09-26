@@ -12,12 +12,13 @@ import PencilKit
 struct Canvas: UIViewRepresentable {
 
     @Binding var canvasView : CanvasView
-    @Binding var isActive = false
-    @Binding var currentCanvas = ""
+    @Binding var isActive : Bool
+    @Binding var currentCanvas : String
     @Binding var dmc : DataModelController
+    @Binding var updateDrawing : String
     
     func makeUIView(context: Context) -> CanvasView {
-        
+        canvasView.isScrollEnabled = true
         return canvasView
     }
 
@@ -29,6 +30,8 @@ struct Canvas: UIViewRepresentable {
             dmc.newDrawing(reference: currentCanvas)
             print("drawings = \(dmc.drawings)")
 
+        } else {
+            dmc.updateDrawing(canvasView.drawing, at: updateDrawing)
         }
         print("currentDrawing = \(dmc.drawings[currentCanvas])")
         canvasView.drawing = dmc.drawings[currentCanvas] ?? PKDrawing()
