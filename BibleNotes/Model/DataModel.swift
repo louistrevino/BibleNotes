@@ -20,7 +20,7 @@ struct DataModel: Codable {
     static let canvasWidth: CGFloat = 768
     
     /// The drawings that make up the current data model.
-    var drawings: [PKDrawing] = []
+    var drawings =  [String : PKDrawing]()
 }
 
 /// `DataModelControllerObserver` is the behavior of an observer of data model changes.
@@ -43,7 +43,7 @@ class DataModelController {
     var observers = [DataModelControllerObserver]()
 
     /// Computed property providing access to the drawings in the data model.
-    var drawings: [PKDrawing] {
+    var drawings : [String : PKDrawing] {
         get { dataModel.drawings }
         set { dataModel.drawings = newValue }
     }
@@ -54,8 +54,11 @@ class DataModelController {
     }
 
         /// Update a drawing at `index` and generate a new thumbnail.
-    func updateDrawing(_ drawing: PKDrawing, at index: Int) {
+    func updateDrawing(_ drawing: PKDrawing, at index: String) {
         dataModel.drawings[index] = drawing
+        print("index = \(index)")
+        print(dataModel.drawings.count)
+        print(dataModel.drawings)
         saveDataModel()
     }
     
@@ -121,7 +124,7 @@ class DataModelController {
         for sampleDataName in DataModel.defaultDrawingNames {
             guard let data = NSDataAsset(name: sampleDataName)?.data else { continue }
             if let drawing = try? PKDrawing(data: data) {
-                testDataModel.drawings.append(drawing)
+                testDataModel.drawings["init"]?.append(drawing)
             }
         }
         return testDataModel
@@ -133,9 +136,10 @@ class DataModelController {
     }
     
     /// Create a new drawing in the data model.
-    func newDrawing() {
+    func newDrawing(reference: String) {
         let newDrawing = PKDrawing()
-        dataModel.drawings.append(newDrawing)
-        updateDrawing(newDrawing, at: dataModel.drawings.count - 1)
+        dataModel.drawings[reference] = newDrawing
+        updateDrawing(newDrawing, at: reference)
+        print("reference = \(reference)")
     }
 }

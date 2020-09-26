@@ -12,22 +12,24 @@ import PencilKit
 struct ContentView: View {
     @State private var selection = 0
     let restP = RestPostman()
-    @State var chapter : Chapter
+    @State var verses : [String]
     @State var prevChapter : [Int]
     @State var nextChapter : [Int]
     @State var canonical : String
     @State var showCanvas = false
-    @State private var canvas = CanvasView()
     @State private var showPicker = false
-    @State var verseNotes = [VerseObject]()
+    @State var canvas = CanvasView()
+    @State var dmc = DataModelController()
+    @State var updateDrawing = ""
     
     var body: some View {
         VStack{
             HStack{
                 Button(action: {
+                    self.updateDrawing = self.canonical
                     self.restP.getRequest(reference: "\(self.prevChapter[0])-\(self.prevChapter[1])")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    self.verses = self.restP.versesText
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
@@ -36,25 +38,28 @@ struct ContentView: View {
                 Button(action: {
                     self.restP.getRequest(reference: "John+1")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    self.verses = self.restP.versesText
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
                 }) {
                     Text("Get John 1")
                 }
                 Button(action: {
+                    self.updateDrawing = self.canonical
                     self.restP.getRequest(reference: "\(self.nextChapter[0])-\(self.nextChapter[1])")
                     self.canonical = self.restP.canonical
-                    self.chapter = self.restP.chapter
+                    self.verses = self.restP.versesText
                     self.nextChapter = self.restP.nextChapter
                     self.prevChapter = self.restP.prevChapter
+
                 }) {
                     Text("Next Chapter")
                 }
                 Button(action: {
                     self.showPicker.toggle()
                     self.showCanvas.toggle()
-                    
+                    self.updateDrawing = self.canonical
+
                 }) {
                     Text("Toggle Canvas")
                 }
@@ -75,16 +80,12 @@ struct ContentView: View {
                         .padding()
                     
                 }
+                
+                if(showCanvas) {
+                    Canvas(canvasView: $canvas, isActive: $showPicker, currentCanvas: $canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
+                }
             }
             
         }
-
-}
-
-struct VerseNote : View {
-    @State var verseText = ""
-    var body: some View {
-        Text(verseText)
     }
-    
 }

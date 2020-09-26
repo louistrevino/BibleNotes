@@ -17,14 +17,11 @@
 		DA4E054E243AC8BA00CF8904 /* BibleNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E054D243AC8BA00CF8904 /* BibleNotesTests.swift */; };
 		DA4E0559243AC8BA00CF8904 /* BibleNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0558243AC8BA00CF8904 /* BibleNotesUITests.swift */; };
 		DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */; };
-		DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E056B243AE02D00CF8904 /* Chapter.swift */; };
 		DA59243B244D508A002C3884 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243A244D508A002C3884 /* CanvasView.swift */; };
 		DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB309243AEFEE0033B318 /* SampleStructures.swift */; };
 		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
 		DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2E395251C5A2A00A8951C /* DataModel.swift */; };
 		DAF63E2D24E911DF00970027 /* DrawingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */; };
-		DAF63E2F24E9F4C200970027 /* VerseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF63E2E24E9F4C200970027 /* VerseObject.swift */; };
-		DAF8A55B24FCB2A700C30458 /* ScriptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,14 +58,11 @@
 		DA4E0558243AC8BA00CF8904 /* BibleNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNotesUITests.swift; sourceTree = "<group>"; };
 		DA4E055A243AC8BA00CF8904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseStructures.swift; sourceTree = "<group>"; };
-		DA4E056B243AE02D00CF8904 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		DA59243A244D508A002C3884 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		DACFB309243AEFEE0033B318 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
 		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
 		DAE2E395251C5A2A00A8951C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DAF63E2C24E911DE00970027 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		DAF63E2E24E9F4C200970027 /* VerseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseObject.swift; sourceTree = "<group>"; };
-		DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,9 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */,
-				DA4E056B243AE02D00CF8904 /* Chapter.swift */,
 				DACFB30B24426A020033B318 /* RestPostman.swift */,
-				DAF63E2E24E9F4C200970027 /* VerseObject.swift */,
 				DAE2E395251C5A2A00A8951C /* DataModel.swift */,
 			);
 			path = Model;
@@ -178,7 +170,6 @@
 				DA4E053A243AC8B400CF8904 /* ContentView.swift */,
 				DA156DD3244B8F2B00EE6A8B /* NotesView.swift */,
 				DA59243A244D508A002C3884 /* CanvasView.swift */,
-				DAF8A55A24FCB2A700C30458 /* ScriptureView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,11 +312,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAF63E2F24E9F4C200970027 /* VerseObject.swift in Sources */,
 				DA4E0537243AC8B400CF8904 /* AppDelegate.swift in Sources */,
-				DA4E056C243AE02D00CF8904 /* Chapter.swift in Sources */,
 				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
-				DAF8A55B24FCB2A700C30458 /* ScriptureView.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
 				DACFB30C24426A020033B318 /* RestPostman.swift in Sources */,
 				DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */,
