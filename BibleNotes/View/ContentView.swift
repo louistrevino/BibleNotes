@@ -9,13 +9,14 @@
 import SwiftUI
 import PencilKit
 
+struct Response: Codable {
+    var response: Verse
+}
+
+
 struct ContentView: View {
     @State private var selection = 0
-    let restP = RestPostman()
-    @State var verses : [String]
-    @State var prevChapter : [Int]
-    @State var nextChapter : [Int]
-    @State var canonical : String
+    @ObservedObject var restP = RestPostman()
     @State var showCanvas = false
     @State private var showPicker = false
     @State var canvas = CanvasView()
@@ -26,66 +27,63 @@ struct ContentView: View {
         VStack{
             HStack{
                 Button(action: {
-                    self.updateDrawing = self.canonical
-                    self.restP.getRequest(reference: "\(self.prevChapter[0])-\(self.prevChapter[1])")
-                    self.canonical = self.restP.canonical
-                    self.verses = self.restP.versesText
-                    self.nextChapter = self.restP.nextChapter
-                    self.prevChapter = self.restP.prevChapter
+                    DispatchQueue.main.async {
+                        self.updateDrawing = self.restP.canonical
+                        self.restP.getRequest(reference: "\(self.restP.prevChapter[0])-\(self.restP.prevChapter[1])")
+
+                    }
                 }) {
                     Text("Previous Chapter")
                 }
                 Button(action: {
-                    self.restP.getRequest(reference: "John+1")
-                    self.canonical = self.restP.canonical
-                    self.verses = self.restP.versesText
-                    self.nextChapter = self.restP.nextChapter
-                    self.prevChapter = self.restP.prevChapter
+                    DispatchQueue.main.async {
+                        self.restP.getRequest(reference: "John+1")
+                    }
+
                 }) {
                     Text("Get John 1")
                 }
                 Button(action: {
-                    self.updateDrawing = self.canonical
-                    self.restP.getRequest(reference: "\(self.nextChapter[0])-\(self.nextChapter[1])")
-                    self.canonical = self.restP.canonical
-                    self.verses = self.restP.versesText
-                    self.nextChapter = self.restP.nextChapter
-                    self.prevChapter = self.restP.prevChapter
-
+                    DispatchQueue.main.async {
+                        self.updateDrawing = self.restP.canonical
+                        self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
+                    }
                 }) {
                     Text("Next Chapter")
                 }
                 Button(action: {
                     self.showPicker.toggle()
                     self.showCanvas.toggle()
-                    self.updateDrawing = self.canonical
+                    self.updateDrawing = self.restP.canonical
 
                 }) {
                     Text("Toggle Canvas")
                 }
             }
-        
-            
+
+
             HStack{
                 ScrollView(.vertical) {
                     VStack{
-                        Text(self.canonical)
+                        Text(self.restP.canonical)
                             .font(.title)
                         Spacer()
-                        ForEach(self.verses, id: \.self) { verse in
+                        ForEach(self.restP.versesText, id: \.self) { verse in
                             Text(verse)
                         }
                     }
                     .frame(width: 500)
                         .padding()
-                    
+
                 }
-                
+
                 if(showCanvas) {
-                    Canvas(canvasView: $canvas, isActive: $showPicker, currentCanvas: $canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
+                    Canvas(canvasView: $canvas, isActive: $showPicker, currentCanvas: $restP.canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
                 }
             }
-            
-        }
+        }.onAppear(perform: loadData)
+    }
+    func loadData() {
+        restP.getRequest(reference: "john1")
     }
 }
