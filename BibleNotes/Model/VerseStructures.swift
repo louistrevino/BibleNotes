@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Verse: Codable {
+struct Chapter: Codable {
     
     let query : String
     let canonical : String
@@ -26,4 +26,10 @@ struct PassageMeta : Codable {
     var prev_verse : Int
     var prev_chapter : [Int]
     var next_chapter : [Int]
+}
+
+struct Verse {
+    var number : String
+    var text : String
+    var isSelected : Bool
 }

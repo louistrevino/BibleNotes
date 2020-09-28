@@ -12,17 +12,20 @@ import SwiftUI
 class RestPostman : ObservableObject {
 
     @Published public var versesText : [String]
+    @Published public var verses : [Verse]
     @Published public var nextChapter: [Int]
     @Published public var prevChapter: [Int]
     @Published public var canonical : String
     let decoder = JSONDecoder()
     
     init() {
-        chapter = Chapter()
+        versesText = []
+        verses = []
         nextChapter = []
         prevChapter = []
         canonical = ""
     }
+    
     func getRequest(reference: String){
 
         var request = URLRequest(url: URL(string: "https://api.esv.org/v3/passage/html/?q=" + reference + "&include-passage-references=false" +
@@ -43,40 +46,38 @@ class RestPostman : ObservableObject {
           }
             do {
                 let decoder = JSONDecoder()
-                let json = try decoder.decode(Verse.self, from: data)
+                let json = try decoder.decode(Chapter.self, from: data)
+//                print("-------- VERSE -------")
+//                print(json.passage_meta)
                 DispatchQueue.main.async {
-                    self.canonical = json.canonical ?? ""
+                    self.canonical = json.canonical
                     self.versesText = json.passages
                     self.prevChapter = json.passage_meta[0].prev_chapter
                     self.nextChapter = json.passage_meta[0].next_chapter
+                    
+                    do {
+                        let nsString = json.passages[0] as NSString
+                        let regex = try NSRegularExpression(pattern: "\\[[0-9]{1,3}\\]")
+                        let matches = try regex.matches(in: json.passages[0], range: NSRange(location: 0, length: json.passages[0].utf16.count))
+
+                        
+                        for  i in 0...matches.count {
+                            let range = matches[i].range
+                            let matchString = nsString.substring(with: range) as String
+                            self.verses[i].number = matchString
+                        }
+
+                    } catch {
+                        
+                    }
                 }
-                
-                // insert scanner here for verses
-//                self.versesText = json.passages[0].components(separatedBy: "[")
-                var i = 0
-                print("===============VERSE TEXT==============\n" + json.passages[0]
-                    + "\n===========END VERSE TEXT ==============\n")
-//                for verse in json.passages[0].components(separatedBy: "[") {
-//                    self.chapter.verses?.append(VerseObject())
-//                    self.chapter.verses?[i].text = verse
-//                    i+=1
-//                    self.chapter.verses?[i].verseNumber = String(i)
-//                }
-//
-                let htmlData = NSString(string: json.passages[0]).data(using: String.Encoding.unicode.rawValue)
-                let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
-                        NSAttributedString.DocumentType.html]
-                let attributedString = try? NSMutableAttributedString(data: htmlData ?? Data(),
-                                                                          options: options,
-                                                                          documentAttributes: nil)
-                self.chapter.verses![0].text = attributedString!.string
-                
             } catch {
                 print(error)
             }
 
         }
         task.resume()
+
     }
     
 }
