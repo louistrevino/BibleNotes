@@ -9,10 +9,6 @@
 import SwiftUI
 import PencilKit
 
-struct Response: Codable {
-    var response: Verse
-}
-
 
 struct ContentView: View {
     @State private var selection = 0
@@ -23,65 +19,73 @@ struct ContentView: View {
     @State var dmc = DataModelController()
     @State var updateDrawing = ""
     
+    
     var body: some View {
-        VStack{
-            HStack{
-                Button(action: {
-                    DispatchQueue.main.async {
-                        self.updateDrawing = self.restP.canonical
-                        self.restP.getRequest(reference: "\(self.restP.prevChapter[0])-\(self.restP.prevChapter[1])")
+        NavigationView {
+            MenuView()
+            VStack(alignment: .leading) {
+                ListItemView().environmentObject(restP)
+            }.padding()
+            VStack{
+                HStack{
+                    Button(action: {
+                        DispatchQueue.main.async {
+                            self.updateDrawing = self.restP.canonical
+                            self.restP.getRequest(reference: "\(self.restP.prevChapter[0])-\(self.restP.prevChapter[1])")
 
-                    }
-                }) {
-                    Text("Previous Chapter")
-                }
-                Button(action: {
-                    DispatchQueue.main.async {
-                        self.restP.getRequest(reference: "John+1")
-                    }
-
-                }) {
-                    Text("Get John 1")
-                }
-                Button(action: {
-                    DispatchQueue.main.async {
-                        self.updateDrawing = self.restP.canonical
-                        self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
-                    }
-                }) {
-                    Text("Next Chapter")
-                }
-                Button(action: {
-                    self.showPicker.toggle()
-                    self.showCanvas.toggle()
-                    self.updateDrawing = self.restP.canonical
-
-                }) {
-                    Text("Toggle Canvas")
-                }
-            }
-
-
-            HStack{
-                ScrollView(.vertical) {
-                    VStack{
-                        Text(self.restP.canonical)
-                            .font(.title)
-                        Spacer()
-                        ForEach(self.restP.versesText, id: \.self) { verse in
-                            Text(verse)
                         }
+                    }) {
+                        Text("Previous Chapter")
                     }
-                    .frame(width: 500)
-                        .padding()
+                    Button(action: {
+                        DispatchQueue.main.async {
+                            self.restP.getRequest(reference: "John+1")
+                        }
 
+                    }) {
+                        Text("Get John 1")
+                    }
+                    Button(action: {
+                        DispatchQueue.main.async {
+                            self.updateDrawing = self.restP.canonical
+                            self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
+                        }
+                    }) {
+                        Text("Next Chapter")
+                    }
+                    Button(action: {
+                        self.showPicker.toggle()
+                        self.showCanvas.toggle()
+                        self.updateDrawing = self.restP.canonical
+
+                    }) {
+                        Text("Toggle Canvas")
+                    }
                 }
 
-                if(showCanvas) {
-                    Canvas(canvasView: $canvas, isActive: $showPicker, currentCanvas: $restP.canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
+
+                HStack{
+                    ScrollView(.vertical) {
+                        VStack{
+                            Text(self.restP.canonical)
+                                .font(.title)
+                            Spacer()
+                            ForEach(self.restP.versesText, id: \.self) { verse in
+                                Text(verse)
+                            }
+                        }
+                        .frame(width: 500)
+                            .padding()
+
+                    }
+
+                    if(showCanvas) {
+                        Canvas(canvasView: $canvas, isActive: $showPicker, currentCanvas: $restP.canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
+                    }
                 }
-            }
-        }.onAppear(perform: loadData)
+                .navigationBarHidden(true)
+            }.onAppear(perform: loadData)
+        }
     }
     func loadData() {
         restP.getRequest(reference: "john1")
