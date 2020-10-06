@@ -10,6 +10,7 @@ import SwiftUI
 import PencilKit
 
 
+@available(iOS 14.0, *)
 struct ContentView: View {
     @State private var selection = 0
     @ObservedObject var restP = RestPostman()
@@ -22,10 +23,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            MenuView()
-            VStack(alignment: .leading) {
-                ListItemView().environmentObject(restP)
-            }.padding()
+            ListItemView().environmentObject(restP)
             VStack{
                 HStack{
                     Button(action: {
@@ -67,9 +65,9 @@ struct ContentView: View {
                 HStack{
                     ScrollView(.vertical) {
                         VStack{
-                            Text(self.restP.canonical)
-                                .font(.title)
-                            Spacer()
+//                            Text(self.restP.canonical)
+//                                .font(.title)
+//                            Spacer()
                             ForEach(self.restP.versesText, id: \.self) { verse in
                                 Text(verse)
                             }
@@ -83,7 +81,7 @@ struct ContentView: View {
                         Canvas(canvasView: $canvas, isActive: $showPicker, currentCanvas: $restP.canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
                     }
                 }
-                .navigationBarHidden(true)
+                .navigationBarTitle(restP.canonical, displayMode: .inline)
             }.onAppear(perform: loadData)
         }
     }

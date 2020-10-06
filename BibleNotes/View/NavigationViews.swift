@@ -20,6 +20,8 @@ struct MenuButton : View {
     var text : String
     var body: some View {
         Text(text)
+            .font(.body)
+            .padding()
     }
 }
 
@@ -29,13 +31,14 @@ struct ChaptersView : View {
     var totalChapters : Int
     
     var body: some View {
-        ForEach((1...totalChapters), id: \.self) { chapter in
-            MenuButton(text: "Chapter \(chapter)")
-                .onTapGesture(){
-                    self.restP.getRequest(reference: "\(book)+\(chapter)")
-                }
-        }
-        
+        Section {
+            ForEach((1...totalChapters), id: \.self) { chapter in
+                MenuButton(text: "Chapter \(chapter)")
+                    .onTapGesture(){
+                        self.restP.getRequest(reference: "\(book)+\(chapter)")
+                    }
+            }
+        }.font(.body)
     }
 }
 
@@ -68,7 +71,7 @@ struct ListItemView : View {
     @EnvironmentObject var restP : RestPostman
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach (listItemRows, id: \.id) { row in
+            List (listItemRows, id: \.id) { row in
                 row.environmentObject(restP)
             }
             Spacer()
