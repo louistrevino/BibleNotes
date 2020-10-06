@@ -10,7 +10,6 @@ import SwiftUI
 import PencilKit
 
 
-@available(iOS 14.0, *)
 struct ContentView: View {
     @State private var selection = 0
     @ObservedObject var restP = RestPostman()
