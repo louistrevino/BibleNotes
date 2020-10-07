@@ -36,10 +36,10 @@ struct Canvas: UIViewRepresentable {
         canvasView.drawing = dmc.drawings[currentCanvas] ?? PKDrawing()
 
         let picker = PKToolPicker()
-        picker.setVisible(vars.showCanvas, forFirstResponder: uiView)
+        picker.setVisible(vars.showCanvas, forFirstResponder: canvasView)
         picker.addObserver(uiView)
         DispatchQueue.main.async {
-            uiView.becomeFirstResponder()
+            canvasView.becomeFirstResponder()
         }
 
     }
@@ -49,8 +49,3 @@ class CanvasView: PKCanvasView {
     
     override var canBecomeFirstResponder: Bool { true }
 }
-//struct CanvasView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CanvasView()
-//    }
-//}
