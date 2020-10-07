@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5386CC3E-BC64-48DE-8970-B97D582177DF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BibleNotes/View/CanvasView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "updateUIView(_:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "0DDD96A9-A980-4BBB-912C-E94C0662E616"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -32,6 +16,114 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8520B11B-0A51-4DC8-990B-1F7216F5F007"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BibleNotes/View/DetailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "DetailsView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "8520B11B-0A51-4DC8-990B-1F7216F5F007 - feac6e0825c24042"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of BibleNotes.DetailsView.canvas : BibleNotes.CanvasView"
+                  moduleName = "BibleNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louistrevino/Documents/BibleIOSApp/BibleNotes/BibleNotes/View/DetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "8520B11B-0A51-4DC8-990B-1F7216F5F007 - bf5ece72c01250a8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BibleNotes.DetailsView.canvas.getter : BibleNotes.CanvasView"
+                  moduleName = "BibleNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louistrevino/Documents/BibleIOSApp/BibleNotes/BibleNotes/View/DetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "151">
+               </Location>
+               <Location
+                  uuid = "8520B11B-0A51-4DC8-990B-1F7216F5F007 - 7bd26e86fb0dfc94"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BibleNotes.DetailsView.canvas.setter : BibleNotes.CanvasView"
+                  moduleName = "BibleNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louistrevino/Documents/BibleIOSApp/BibleNotes/BibleNotes/View/DetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "8520B11B-0A51-4DC8-990B-1F7216F5F007 - 1a4805c596fd19ba"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BibleNotes.DetailsView.canvas.modify : BibleNotes.CanvasView"
+                  moduleName = "BibleNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louistrevino/Documents/BibleIOSApp/BibleNotes/BibleNotes/View/DetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  uuid = "8520B11B-0A51-4DC8-990B-1F7216F5F007 - 1446ce6067976794"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BibleNotes.DetailsView.canvas.modify : BibleNotes.CanvasView with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "BibleNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louistrevino/Documents/BibleIOSApp/BibleNotes/BibleNotes/View/DetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  uuid = "8520B11B-0A51-4DC8-990B-1F7216F5F007 - 5e44513b26bbe8ec"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BibleNotes.DetailsView.$canvas.getter : SwiftUI.Binding&lt;BibleNotes.CanvasView&gt;"
+                  moduleName = "BibleNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louistrevino/Documents/BibleIOSApp/BibleNotes/BibleNotes/View/DetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "176">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

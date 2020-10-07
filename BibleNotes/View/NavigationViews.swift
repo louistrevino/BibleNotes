@@ -89,3 +89,49 @@ struct SubMenuView : View {
     }
 
 }
+
+struct NavMenuView : View {
+    
+    @ObservedObject var restP : RestPostman
+    @ObservedObject var vars : Vars
+    @State var canvas = CanvasView()
+    @State var dmc = DataModelController()
+    @State var updateDrawing = ""
+    
+    var body: some View {
+        HStack{
+            Button(action: {
+                DispatchQueue.main.async {
+                    self.updateDrawing = self.restP.canonical
+                    self.restP.getRequest(reference: "\(self.restP.prevChapter[0])-\(self.restP.prevChapter[1])")
+
+                }
+            }) {
+                Text("Previous Chapter")
+            }
+            Button(action: {
+                DispatchQueue.main.async {
+                    self.restP.getRequest(reference: "John+1")
+                }
+
+            }) {
+                Text("Get John 1")
+            }
+            Button(action: {
+                DispatchQueue.main.async {
+                    self.updateDrawing = self.restP.canonical
+                    self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
+                }
+            }) {
+                Text("Next Chapter")
+            }
+            Button(action: {
+                vars.showCanvas.toggle()
+                self.updateDrawing = self.restP.canonical
+
+            }) {
+                Text("Toggle Canvas")
+            }
+        }
+    }
+}
