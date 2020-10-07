@@ -31,6 +31,9 @@ struct DetailsView : View {
 
                 if(vars.showCanvas) {
                     Canvas(canvasView: $canvas, vars: self.vars, currentCanvas: $restP.canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
+                        .padding()
+                        .clipShape(Rectangle()).overlay(Rectangle()
+                                                            .stroke(Color.gray, lineWidth: 3))
                 }
             }
             .navigationBarTitle(restP.canonical, displayMode: .automatic)
