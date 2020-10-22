@@ -16,65 +16,33 @@ struct MenuView : View{
     }
 }
 
-struct MenuButton : View {
-    var text : String
-    var body: some View {
-        Text(text)
-            .font(.body)
-            .padding()
-    }
-}
-
-struct ChaptersView : View {
-    @EnvironmentObject var restP : RestPostman
-    var book : String
-    var totalChapters : Int
-    
-    var body: some View {
-        Section {
-            ForEach((1...totalChapters), id: \.self) { chapter in
-                MenuButton(text: "Chapter \(chapter)")
-                    .onTapGesture(){
-                        self.restP.getRequest(reference: "\(book)+\(chapter)")
-                    }
-            }
-        }.font(.body)
-    }
-}
-
-struct ListItemRow : View {
+struct ListItemRow : Identifiable {
     var id = UUID()
-    var book : String
-    var totalChapters : Int
-    @State var showChapters : Bool = false
-    @EnvironmentObject var restP : RestPostman
-    var body: some View {
-        VStack(alignment: .leading) {
-            Button(book) {
-                showChapters.toggle()
-            }
-            if(showChapters) {
-                ChaptersView(book: book, totalChapters: totalChapters).environmentObject(restP)
-            }
-        }
-    }
+    var name : String
+    var totalChapters : Int?
 }
 
 struct ListItemView : View {
 
-    var listItemRows : [ListItemRow] = [
-        ListItemRow(book: "Matthew", totalChapters: 28),
-        ListItemRow(book: "Mark", totalChapters: 16),
-        ListItemRow(book: "Luke", totalChapters: 24),
-        ListItemRow(book: "John", totalChapters: 21)
+    var books = [
+        ListItemRow(name: "Matthew", totalChapters: 28),
+        ListItemRow(name: "Mark", totalChapters: 16),
+        ListItemRow(name: "Luke", totalChapters: 24),
+        ListItemRow(name: "John", totalChapters: 21)
     ]
+
     @EnvironmentObject var restP : RestPostman
     var body: some View {
-        VStack(alignment: .leading) {
-            List (listItemRows, id: \.id) { row in
-                row.environmentObject(restP)
+        List {
+            ForEach(books, id: \.id) { section in
+                Section(header: Text(section.name)) {
+                    ForEach(1..<section.totalChapters! + 1) { number in
+                        Button("Chapter \(number)") {
+                            restP.getRequest(reference: "\(section.name)+\(number)")
+                        }
+                    }
+                }
             }
-            Spacer()
         }
     }
 }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DetailsView : View {
-    @ObservedObject var restP : RestPostman
+    @State var restP = RestPostman()
     @ObservedObject var vars : Vars
     @State var canvas = CanvasView()
     @State var dmc = DataModelController()
@@ -19,7 +19,7 @@ struct DetailsView : View {
         VStack{
             HStack{
                 ScrollView(.vertical) {
-                    VStack{
+                    LazyVStack{
                         ForEach(self.restP.versesText, id: \.self) { verse in
                             Text(verse)
                         }

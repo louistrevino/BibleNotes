@@ -18,6 +18,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ListItemView().environmentObject(restP)
+                .navigationTitle("Books")
             DetailsView(restP: restP, vars: vars)
                 .navigationBarItems(trailing: NavMenuView(restP: restP, vars: vars))
         }
