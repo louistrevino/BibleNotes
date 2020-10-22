@@ -79,14 +79,6 @@ struct NavMenuView : View {
             }
             Button(action: {
                 DispatchQueue.main.async {
-                    self.restP.getRequest(reference: "John+1")
-                }
-
-            }) {
-                Text("Get John 1")
-            }
-            Button(action: {
-                DispatchQueue.main.async {
                     self.updateDrawing = self.restP.canonical
                     self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
                 }
