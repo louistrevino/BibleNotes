@@ -56,9 +56,7 @@ class DataModelController {
         /// Update a drawing at `index` and generate a new thumbnail.
     func updateDrawing(_ drawing: PKDrawing, at index: String) {
         dataModel.drawings[index] = drawing
-        print("index = \(index)")
-        print(dataModel.drawings.count)
-        print(dataModel.drawings)
+
         saveDataModel()
     }
     
@@ -140,6 +138,6 @@ class DataModelController {
         let newDrawing = PKDrawing()
         dataModel.drawings[reference] = newDrawing
         updateDrawing(newDrawing, at: reference)
-        print("reference = \(reference)")
+
     }
 }
