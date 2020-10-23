@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DetailsView : View {
-    @State var restP = RestPostman()
+    @State var restP : RestPostman
     @ObservedObject var vars : Vars
     @State var canvas = CanvasView()
     @State var dmc = DataModelController()
@@ -18,19 +18,21 @@ struct DetailsView : View {
     var body: some View {
         VStack{
             HStack{
-                ScrollView(.vertical) {
-                    LazyVStack{
-                        ForEach(self.restP.versesText, id: \.self) { verse in
-                            Text(verse)
+                // TODO: set this up to where canvas opens in a second window
+                if(!vars.showCanvas) {
+                    ScrollView(.vertical) {
+                        LazyVStack{
+                            ForEach(self.restP.versesText, id: \.self) { verse in
+                                Text(verse)
+                            }
                         }
+                        .frame(width: 500)
+                            .padding()
+
                     }
-                    .frame(width: 500)
-                        .padding()
-
                 }
-
-                if(vars.showCanvas) {
-                    Canvas(canvasView: $canvas, vars: self.vars, currentCanvas: $restP.canonical,  dmc: $dmc, updateDrawing: $updateDrawing)
+                else {
+                    Canvas(canvasView: $canvas, vars: self.vars, currentCanvas: $restP.canonical,  dmc: $dmc, updateDrawing: $restP.canonical)
                         .padding()
                         .clipShape(Rectangle()).overlay(Rectangle()
                                                             .stroke(Color.gray, lineWidth: 3))
