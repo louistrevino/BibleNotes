@@ -23,18 +23,15 @@ struct Canvas: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: CanvasView, context: Context) {
-        print("isActive = \(vars.showCanvas)")
-        print("currentCanvas = \(currentCanvas)")
-        print("dmc.drawings = \(dmc.drawings)")
         if dmc.drawings[currentCanvas] == nil {
             dmc.newDrawing(reference: currentCanvas)
-            print("drawings = \(dmc.drawings)")
-
         } else {
             dmc.updateDrawing(canvasView.drawing, at: updateDrawing)
+            print("dmc update drawing: \(canvasView.drawing) at updateDrawing: \(updateDrawing)")
         }
         canvasView.drawing = dmc.drawings[currentCanvas] ?? PKDrawing()
-
+        print("current drawing is \(canvasView.drawing) at currentCanvas: \(currentCanvas)")
+        
         let picker = PKToolPicker()
         picker.setVisible(vars.showCanvas, forFirstResponder: canvasView)
         picker.addObserver(uiView)
