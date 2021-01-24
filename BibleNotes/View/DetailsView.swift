@@ -38,7 +38,7 @@ struct DetailsView : View {
                                                             .stroke(Color.gray, lineWidth: 3))
                 }
             }
-            .navigationBarTitle(restP.canonical, displayMode: .automatic)
+            .navigationBarTitle(restP.canonical, displayMode: !vars.showCanvas ? .automatic : .inline)
         }.onAppear(perform: loadData)
     }
     
