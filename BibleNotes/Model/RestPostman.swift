@@ -25,8 +25,7 @@ class RestPostman : ObservableObject {
     }
     func getRequest(reference: String){
 
-
-        var request = URLRequest(url: URL(string: "https://api.esv.org/v3/passage/text/?q=" + reference + "&include-passage-references=false" +
+        var request = URLRequest(url: URL(string: "https://api.esv.org/v3/passage/html/?q=" + reference + "&include-passage-references=false" +
             "&include-footnotes=false" +
             "&horizontal-line-length=30" 
         )!,timeoutInterval: Double.infinity)
@@ -39,37 +38,21 @@ class RestPostman : ObservableObject {
             print(String(describing: error))
             return
           }
-
             do {
-
-//                print(String(data: data, encoding: .ascii))
                 let decoder = JSONDecoder()
                 let json = try decoder.decode(Verse.self, from: data)
-//                print("-------- VERSE -------")
-//                print(json.passage_meta)
                 DispatchQueue.main.async {
                     self.canonical = json.canonical ?? ""
                     self.versesText = json.passages
                     self.prevChapter = json.passage_meta[0].prev_chapter
                     self.nextChapter = json.passage_meta[0].next_chapter
-                    
                 }
-                
-                // insert scanner here for verses
-//                self.versesText = json.passages[0].components(separatedBy: "[")
-                
-                
             } catch {
                 print(error)
             }
 
         }
-
         task.resume()
-
-        
-
-        
     }
     
 }
