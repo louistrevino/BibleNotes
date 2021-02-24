@@ -50,6 +50,7 @@ class RestPostman : ObservableObject {
                 DispatchQueue.main.async {
                     self.canonical = json.canonical ?? ""
                     self.versesText = json.passages
+                    print(json.passages)
                     self.prevChapter = json.passage_meta[0].prev_chapter
                     self.nextChapter = json.passage_meta[0].next_chapter
                     

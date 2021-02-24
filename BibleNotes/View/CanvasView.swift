@@ -33,11 +33,14 @@ struct Canvas: UIViewRepresentable {
         print("current drawing is \(canvasView.drawing) at currentCanvas: \(currentCanvas)")
         
         let picker = PKToolPicker()
-        picker.setVisible(vars.showCanvas, forFirstResponder: canvasView)
-        picker.addObserver(uiView)
-        DispatchQueue.main.async {
-            canvasView.becomeFirstResponder()
+
+        picker.addObserver(canvasView)
+        if (vars.showCanvas) {
+            DispatchQueue.main.async {
+                canvasView.becomeFirstResponder()
+            }
         }
+        picker.setVisible(vars.showCanvas, forFirstResponder: canvasView)
 
     }
 }

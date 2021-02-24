@@ -10,33 +10,29 @@ import SwiftUI
 import PencilKit
 
 struct NotesCanvasView: View {
-//    @State var views : [NoteView<>]?
+    @State var notes : [Note]
     var body: some View {
-//        ScrollView() {
-//            ForEach(views? ?? [NoteView()]) { view in
-//                view
-//            }
-        Text("test")
-//        }
-    }
-}
-
-struct NotesCanvasView_Previews: PreviewProvider {
-    static var previews: some View {
-        NotesCanvasView()
-    }
-}
-
-struct NoteView<Content: View> : View {
-    
-    var canvas : Canvas
-//    var scriptureView : ScriptureView
-    var body: some View {
-        if (canvas != nil) {
-            canvas
-        } else {
-//            scriptureView
+        List (notes) { note in
+            NoteView(note: note)
         }
+    }
+}
+
+struct Note : Identifiable {
+    var id = UUID()
+    var selectedVerse : String = ""
+    @State var userText : String = ""
+
+}
+
+struct NoteView : View {
+    var note : Note
+    
+    @State var userText = ""
+    var body: some View {
+        Text(note.selectedVerse)
+            .font(.subheadline)
+        TextEditor(text: note.$userText)
     }
     
 }
