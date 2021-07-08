@@ -27,3 +27,11 @@ struct PassageMeta : Codable {
     var prev_chapter : [Int]
     var next_chapter : [Int]
 }
+
+struct ResultSet : Codable {
+    var row : [Row]
+}
+
+struct Row : Codable {
+    var field : [String]
+}
