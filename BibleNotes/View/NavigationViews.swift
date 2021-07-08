@@ -32,6 +32,8 @@ struct ListItemView : View {
     ]
 
     @EnvironmentObject var restP : RestPostman
+    @EnvironmentObject var manager : DrawingManager
+    @ObservedObject var vars : Vars
     var body: some View {
         List {
             ForEach(books, id: \.id) { section in
@@ -39,6 +41,9 @@ struct ListItemView : View {
                     ForEach(1..<section.totalChapters! + 1) { number in
                         Button("Chapter \(number)") {
                             restP.getRequest(reference: "\(section.name)+\(number)")
+                            manager.updateReference(book: section.name, chapter: Int32(number))
+                            vars.i = number
+                            print("list item view: \(vars.i)")
                         }
                     }
                 }
@@ -62,7 +67,8 @@ struct NavMenuView : View {
     
     @ObservedObject var restP : RestPostman
     @ObservedObject var vars : Vars
-    @State var canvas = CanvasView()
+    @ObservedObject var manager : DrawingManager
+//    @State var canvas = CanvasView()
     @State var dmc = DataModelController()
     @State var updateDrawing = ""
     
@@ -72,7 +78,8 @@ struct NavMenuView : View {
                 DispatchQueue.main.async {
                     self.updateDrawing = self.restP.canonical
                     self.restP.getRequest(reference: "\(self.restP.prevChapter[0])-\(self.restP.prevChapter[1])")
-
+                    // TODO:- update book/chapter for manager
+//                    self.manager.updateReference(book: <#T##String#>, chapter: <#T##Int32#>)
                 }
             }) {
                 Text("Previous Chapter")
@@ -81,6 +88,8 @@ struct NavMenuView : View {
                 DispatchQueue.main.async {
                     self.updateDrawing = self.restP.canonical
                     self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
+                    // TODO:- update book/chapter for manager
+//                    self.manager.updateReference(book: <#T##String#>, chapter: <#T##Int32#>)
                 }
             }) {
                 Text("Next Chapter")

@@ -10,33 +10,16 @@ import SwiftUI
 import PencilKit
 
 struct NotesCanvasView: View {
-//    @State var views : [NoteView<>]?
-    var body: some View {
-//        ScrollView() {
-//            ForEach(views? ?? [NoteView()]) { view in
-//                view
-//            }
-        Text("test")
-//        }
-    }
-}
-
-struct NotesCanvasView_Previews: PreviewProvider {
-    static var previews: some View {
-        NotesCanvasView()
-    }
-}
-
-struct NoteView<Content: View> : View {
+    @ObservedObject var manager = DrawingManager(book: "john", chapter: 1)
+    @State private var addNewShown = false
     
-    var canvas : Canvas
-//    var scriptureView : ScriptureView
     var body: some View {
-        if (canvas != nil) {
-            canvas
-        } else {
-//            scriptureView
+        NavigationView {
+            List {
+                ForEach(manager.docs) { doc in
+                    NavigationLink(destination: DrawingWrapper(manager: manager, id: doc.id), label: { Text(verbatim: doc.name)})
+                }
+            }
         }
     }
-    
 }

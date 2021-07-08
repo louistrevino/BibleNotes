@@ -19,11 +19,16 @@
 		DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */; };
 		DA4EB05E252D362100715431 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EB05D252D362100715431 /* DetailsView.swift */; };
 		DA59243B244D508A002C3884 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243A244D508A002C3884 /* CanvasView.swift */; };
+		DA64C721268C30A400D521D7 /* DrawingDocModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA64C71F268C30A400D521D7 /* DrawingDocModel.xcdatamodeld */; };
+		DA78BD36268ED22F000EE3C9 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD35268ED22F000EE3C9 /* DrawingManager.swift */; };
+		DA78BD38269399B5000EE3C9 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD37269399B5000EE3C9 /* DrawingViewController.swift */; };
+		DA78BD3A26939C39000EE3C9 /* DrawingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD3926939C39000EE3C9 /* DrawingWrapper.swift */; };
+		DAA5E548268C2A8000568EAA /* DrawingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5E547268C2A8000568EAA /* DrawingDocument.swift */; };
+		DAA5E54A268C2B5500568EAA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5E549268C2B5500568EAA /* CoreDataManager.swift */; };
 		DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB309243AEFEE0033B318 /* SampleStructures.swift */; };
 		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
 		DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2E395251C5A2A00A8951C /* DataModel.swift */; };
 		DAEB76D02523F2E2008AC40C /* NavigationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB76CF2523F2E2008AC40C /* NavigationViews.swift */; };
-		DAF63E2D24E911DF00970027 /* DrawingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,11 +67,16 @@
 		DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseStructures.swift; sourceTree = "<group>"; };
 		DA4EB05D252D362100715431 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		DA59243A244D508A002C3884 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		DA64C720268C30A400D521D7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DA78BD35268ED22F000EE3C9 /* DrawingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
+		DA78BD37269399B5000EE3C9 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		DA78BD3926939C39000EE3C9 /* DrawingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWrapper.swift; sourceTree = "<group>"; };
+		DAA5E547268C2A8000568EAA /* DrawingDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingDocument.swift; sourceTree = "<group>"; };
+		DAA5E549268C2B5500568EAA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DACFB309243AEFEE0033B318 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
 		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
 		DAE2E395251C5A2A00A8951C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		DAEB76CF2523F2E2008AC40C /* NavigationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViews.swift; sourceTree = "<group>"; };
-		DAF63E2C24E911DE00970027 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +127,8 @@
 		DA4E0535243AC8B400CF8904 /* BibleNotes */ = {
 			isa = PBXGroup;
 			children = (
-				DA4E0568243ADF3E00CF8904 /* Controller */,
+				DA78BD34268ED1ED000EE3C9 /* DataManager */,
+				DA4E0568243ADF3E00CF8904 /* ViewController */,
 				DA4E0567243ADF3800CF8904 /* View */,
 				DA4E0566243ADF2B00CF8904 /* Model */,
 				DA4E0536243AC8B400CF8904 /* AppDelegate.swift */,
@@ -127,7 +138,7 @@
 				DA4E0544243AC8BA00CF8904 /* Info.plist */,
 				DA4E053E243AC8BA00CF8904 /* Preview Content */,
 				DACFB309243AEFEE0033B318 /* SampleStructures.swift */,
-				DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */,
+				DA64C71F268C30A400D521D7 /* DrawingDocModel.xcdatamodeld */,
 			);
 			path = BibleNotes;
 			sourceTree = "<group>";
@@ -164,6 +175,7 @@
 				DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */,
 				DACFB30B24426A020033B318 /* RestPostman.swift */,
 				DAE2E395251C5A2A00A8951C /* DataModel.swift */,
+				DAA5E547268C2A8000568EAA /* DrawingDocument.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,15 +188,26 @@
 				DA59243A244D508A002C3884 /* CanvasView.swift */,
 				DAEB76CF2523F2E2008AC40C /* NavigationViews.swift */,
 				DA4EB05D252D362100715431 /* DetailsView.swift */,
+				DA78BD3926939C39000EE3C9 /* DrawingWrapper.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		DA4E0568243ADF3E00CF8904 /* Controller */ = {
+		DA4E0568243ADF3E00CF8904 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DA78BD37269399B5000EE3C9 /* DrawingViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DA78BD34268ED1ED000EE3C9 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				DAA5E549268C2B5500568EAA /* CoreDataManager.swift */,
+				DA78BD35268ED22F000EE3C9 /* DrawingManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,16 +342,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4E0537243AC8B400CF8904 /* AppDelegate.swift in Sources */,
+				DA78BD38269399B5000EE3C9 /* DrawingViewController.swift in Sources */,
+				DAA5E548268C2A8000568EAA /* DrawingDocument.swift in Sources */,
 				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
+				DA78BD3A26939C39000EE3C9 /* DrawingWrapper.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
 				DACFB30C24426A020033B318 /* RestPostman.swift in Sources */,
 				DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */,
 				DA4EB05E252D362100715431 /* DetailsView.swift in Sources */,
-				DAF63E2D24E911DF00970027 /* DrawingDataModel.xcdatamodeld in Sources */,
+				DA64C721268C30A400D521D7 /* DrawingDocModel.xcdatamodeld in Sources */,
 				DAEB76D02523F2E2008AC40C /* NavigationViews.swift in Sources */,
 				DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */,
 				DA4E053B243AC8B400CF8904 /* ContentView.swift in Sources */,
 				DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */,
+				DAA5E54A268C2B5500568EAA /* CoreDataManager.swift in Sources */,
+				DA78BD36268ED22F000EE3C9 /* DrawingManager.swift in Sources */,
 				DA156DD4244B8F2B00EE6A8B /* NotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,13 +684,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DAF63E2B24E911DE00970027 /* DrawingDataModel.xcdatamodeld */ = {
+		DA64C71F268C30A400D521D7 /* DrawingDocModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DAF63E2C24E911DE00970027 /* Model.xcdatamodel */,
+				DA64C720268C30A400D521D7 /* Model.xcdatamodel */,
 			);
-			currentVersion = DAF63E2C24E911DE00970027 /* Model.xcdatamodel */;
-			path = DrawingDataModel.xcdatamodeld;
+			currentVersion = DA64C720268C30A400D521D7 /* Model.xcdatamodel */;
+			path = DrawingDocModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
