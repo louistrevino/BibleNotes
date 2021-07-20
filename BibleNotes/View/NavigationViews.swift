@@ -31,7 +31,7 @@ struct ListItemView : View {
         ListItemRow(name: "John", totalChapters: 21)
     ]
 
-    @EnvironmentObject var restP : RestPostman
+    @EnvironmentObject var translationManager : TranslationManager
     @EnvironmentObject var manager : DrawingManager
     @ObservedObject var vars : Vars
     var body: some View {
@@ -40,7 +40,10 @@ struct ListItemView : View {
                 Section(header: Text(section.name)) {
                     ForEach(1..<section.totalChapters! + 1) { number in
                         Button("Chapter \(number)") {
-                            restP.getRequest(reference: "\(section.name)+\(number)")
+                            translationManager.getPassage(reference: "\(section.name)+\(number)", translation: Translations.ESV) { chapter in
+                                self.vars.reference = chapter.reference
+                                self.vars.verses = chapter.verses
+                            }
                             manager.updateReference(book: section.name, chapter: Int32(number))
                             vars.i = number
                             print("list item view: \(vars.i)")
@@ -55,7 +58,7 @@ struct ListItemView : View {
 struct SubMenuView : View {
     var book : String
     var chapters : [String]
-    @EnvironmentObject var restP : RestPostman
+    @EnvironmentObject var translationManager : TranslationManager
     
     var body: some View {
         Text("View")
@@ -65,38 +68,38 @@ struct SubMenuView : View {
 
 struct NavMenuView : View {
     
-    @ObservedObject var restP : RestPostman
+    @ObservedObject var translationManager : TranslationManager
     @ObservedObject var vars : Vars
     @ObservedObject var manager : DrawingManager
 //    @State var canvas = CanvasView()
-    @State var dmc = DataModelController()
+//    @State var dmc = DataModelController()
     @State var updateDrawing = ""
     
     var body: some View {
         HStack{
-            Button(action: {
-                DispatchQueue.main.async {
-                    self.updateDrawing = self.restP.canonical
-                    self.restP.getRequest(reference: "\(self.restP.prevChapter[0])-\(self.restP.prevChapter[1])")
+//            Button(action: {
+//                DispatchQueue.main.async {
+//                    self.updateDrawing = self.restP.canonical
+//                    self.restP.getRequest(reference: "\(self.restP.prevChapter[0])-\(self.restP.prevChapter[1])")
                     // TODO:- update book/chapter for manager
 //                    self.manager.updateReference(book: <#T##String#>, chapter: <#T##Int32#>)
-                }
-            }) {
-                Text("Previous Chapter")
-            }
-            Button(action: {
-                DispatchQueue.main.async {
-                    self.updateDrawing = self.restP.canonical
-                    self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
-                    // TODO:- update book/chapter for manager
-//                    self.manager.updateReference(book: <#T##String#>, chapter: <#T##Int32#>)
-                }
-            }) {
-                Text("Next Chapter")
-            }
+//                }
+//            }) {
+//                Text("Previous Chapter")
+//            }
+//            Button(action: {
+//                DispatchQueue.main.async {
+//                    self.updateDrawing = self.restP.canonical
+//                    self.restP.getRequest(reference: "\(self.restP.nextChapter[0])-\(self.restP.nextChapter[1])")
+//                    // TODO:- update book/chapter for manager
+////                    self.manager.updateReference(book: <#T##String#>, chapter: <#T##Int32#>)
+//                }
+//            }) {
+//                Text("Next Chapter")
+//            }
             Button(action: {
                 vars.showCanvas.toggle()
-                self.updateDrawing = self.restP.canonical
+                self.updateDrawing = self.vars.reference
 
             }) {
                 Text("Toggle Canvas")

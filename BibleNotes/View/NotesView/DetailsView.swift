@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct DetailsView : View {
-    @State var restP : RestPostman
+    @State var translationManager : TranslationManager
     @ObservedObject var vars : Vars
 //    @State var canvas = CanvasView()
-    @State var dmc = DataModelController()
+//    @State var dmc = DataModelController()
     @State var updateDrawing = ""
     @ObservedObject var manager : DrawingManager
     @State private var addNewShown = false
@@ -21,18 +21,18 @@ struct DetailsView : View {
         VStack{
             HStack{
                 // TODO: set this up to where canvas opens in a second window
-                if(!vars.showCanvas) {
-                    ScrollView(.vertical) {
-                        LazyVStack{
-                            ForEach(self.restP.versesText, id: \.self) { verse in
-                                Text(verse)
-                            }
+                 
+                ScrollView(.vertical) {
+                    LazyVStack{
+                        ForEach(self.vars.verses, id: \.id) { verse in
+                            Text("\(verse.number). \(verse.text)")
                         }
-                        .frame(width: 500)
-                            .padding()
                     }
+                    .frame(width: 500)
+                        .padding()
                 }
-                else {
+                
+                if(vars.showCanvas) {
                     NavigationView {
                         List {
                             ForEach(manager.docs) { doc in
@@ -42,19 +42,15 @@ struct DetailsView : View {
                         .navigationBarItems(trailing: Button("Add") {
                             addData();
                         })
-                    }
+                    }.navigationViewStyle(StackNavigationViewStyle())
                 }
             }
-            .navigationBarTitle(restP.canonical, displayMode: .automatic)
-        }.onAppear(perform: loadData)
-    }
-    
-    func loadData() {
-        restP.getRequest(reference: "john1")
+            .navigationBarTitle(self.vars.reference, displayMode: .automatic)
+        }
     }
     
     func addData() {
-        manager.addData(doc: DrawingDocument(id: UUID(), data: Data(), name: "drawing", book: restP.canonical.trimmingCharacters(in: CharacterSet(charactersIn: "1234567890: ")), chapter: Int32(vars.i)));
+        manager.addData(doc: DrawingDocument(id: UUID(), data: Data(), name: "drawing", book: self.vars.reference.trimmingCharacters(in: CharacterSet(charactersIn: "1234567890: ")), chapter: Int32(vars.i)));
         print("detailsView \(vars.i)")
     }
 }
@@ -62,4 +58,7 @@ struct DetailsView : View {
 class Vars : ObservableObject{
     @Published var showCanvas = false
     @Published var i = 1
+    
+    @Published var reference = ""
+    @Published var verses = [Verse]()
 }

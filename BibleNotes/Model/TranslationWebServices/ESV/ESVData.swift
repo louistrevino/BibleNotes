@@ -1,5 +1,5 @@
 //
-//  VersesDao.swift
+//  ESVData.swift
 //  BibleNotes
 //
 //  Created by Louis Trevino on 4/5/20.
@@ -8,14 +8,12 @@
 
 import Foundation
 
-struct Verse: Codable {
-    
+struct ESVData: Codable {
     let query : String
     let canonical : String
     let parsed : [[Int]]
     let passage_meta : [PassageMeta]
     let passages : [String]
-
 }
 
 struct PassageMeta : Codable {
@@ -27,3 +25,4 @@ struct PassageMeta : Codable {
     var prev_chapter : [Int]
     var next_chapter : [Int]
 }
+

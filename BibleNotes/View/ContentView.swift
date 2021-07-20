@@ -12,16 +12,22 @@ import PencilKit
 
 struct ContentView: View {
     
-    @ObservedObject var restP = RestPostman()
+    @ObservedObject var translationManager = TranslationManager()
     @ObservedObject var vars = Vars()
     @ObservedObject var manager = DrawingManager(book: "john", chapter: 1)
 
     var body: some View {
         NavigationView {
-            ListItemView(vars: vars).environmentObject(restP).environmentObject(manager)
+            ListItemView(vars: vars).environmentObject(translationManager).environmentObject(manager)
                 .navigationTitle("Books")
-            DetailsView(restP: restP, vars: vars, manager: manager)
-                .navigationBarItems(trailing: NavMenuView(restP: restP, vars: vars, manager: manager))
+            DetailsView(translationManager: translationManager, vars: vars, manager: manager)
+                .navigationBarItems(trailing: NavMenuView(translationManager: translationManager, vars: vars, manager: manager))
+        }
+        .onAppear{
+            self.translationManager.getPassage(reference: "john1", translation: Translations.ESV, completion: { chapter in
+                self.vars.reference = chapter.reference
+                self.vars.verses = chapter.verses
+            })
         }
 
     }

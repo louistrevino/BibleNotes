@@ -16,18 +16,19 @@
 		DA4E0543243AC8BA00CF8904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4E0541243AC8BA00CF8904 /* LaunchScreen.storyboard */; };
 		DA4E054E243AC8BA00CF8904 /* BibleNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E054D243AC8BA00CF8904 /* BibleNotesTests.swift */; };
 		DA4E0559243AC8BA00CF8904 /* BibleNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0558243AC8BA00CF8904 /* BibleNotesUITests.swift */; };
-		DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */; };
+		DA4E056A243ADF5E00CF8904 /* ESVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E0569243ADF5E00CF8904 /* ESVData.swift */; };
 		DA4EB05E252D362100715431 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EB05D252D362100715431 /* DetailsView.swift */; };
-		DA59243B244D508A002C3884 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59243A244D508A002C3884 /* CanvasView.swift */; };
 		DA64C721268C30A400D521D7 /* DrawingDocModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA64C71F268C30A400D521D7 /* DrawingDocModel.xcdatamodeld */; };
 		DA78BD36268ED22F000EE3C9 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD35268ED22F000EE3C9 /* DrawingManager.swift */; };
 		DA78BD38269399B5000EE3C9 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD37269399B5000EE3C9 /* DrawingViewController.swift */; };
 		DA78BD3A26939C39000EE3C9 /* DrawingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD3926939C39000EE3C9 /* DrawingWrapper.swift */; };
+		DA78BD3C269A45CF000EE3C9 /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD3B269A45CF000EE3C9 /* TranslationManager.swift */; };
+		DA78BD3E269A4804000EE3C9 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD3D269A4804000EE3C9 /* Chapter.swift */; };
+		DA78BD43269A7806000EE3C9 /* ESVPassageOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA78BD42269A7806000EE3C9 /* ESVPassageOptions.swift */; };
 		DAA5E548268C2A8000568EAA /* DrawingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5E547268C2A8000568EAA /* DrawingDocument.swift */; };
 		DAA5E54A268C2B5500568EAA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA5E549268C2B5500568EAA /* CoreDataManager.swift */; };
 		DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB309243AEFEE0033B318 /* SampleStructures.swift */; };
-		DACFB30C24426A020033B318 /* RestPostman.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* RestPostman.swift */; };
-		DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2E395251C5A2A00A8951C /* DataModel.swift */; };
+		DACFB30C24426A020033B318 /* ESVWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACFB30B24426A020033B318 /* ESVWebService.swift */; };
 		DAEB76D02523F2E2008AC40C /* NavigationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB76CF2523F2E2008AC40C /* NavigationViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,18 +65,19 @@
 		DA4E0554243AC8BA00CF8904 /* BibleNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibleNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4E0558243AC8BA00CF8904 /* BibleNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleNotesUITests.swift; sourceTree = "<group>"; };
 		DA4E055A243AC8BA00CF8904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseStructures.swift; sourceTree = "<group>"; };
+		DA4E0569243ADF5E00CF8904 /* ESVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESVData.swift; sourceTree = "<group>"; };
 		DA4EB05D252D362100715431 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		DA59243A244D508A002C3884 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		DA64C720268C30A400D521D7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DA78BD35268ED22F000EE3C9 /* DrawingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
 		DA78BD37269399B5000EE3C9 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		DA78BD3926939C39000EE3C9 /* DrawingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWrapper.swift; sourceTree = "<group>"; };
+		DA78BD3B269A45CF000EE3C9 /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
+		DA78BD3D269A4804000EE3C9 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		DA78BD42269A7806000EE3C9 /* ESVPassageOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESVPassageOptions.swift; sourceTree = "<group>"; };
 		DAA5E547268C2A8000568EAA /* DrawingDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingDocument.swift; sourceTree = "<group>"; };
 		DAA5E549268C2B5500568EAA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DACFB309243AEFEE0033B318 /* SampleStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStructures.swift; sourceTree = "<group>"; };
-		DACFB30B24426A020033B318 /* RestPostman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPostman.swift; sourceTree = "<group>"; };
-		DAE2E395251C5A2A00A8951C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		DACFB30B24426A020033B318 /* ESVWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESVWebService.swift; sourceTree = "<group>"; };
 		DAEB76CF2523F2E2008AC40C /* NavigationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,10 +174,9 @@
 		DA4E0566243ADF2B00CF8904 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DA4E0569243ADF5E00CF8904 /* VerseStructures.swift */,
-				DACFB30B24426A020033B318 /* RestPostman.swift */,
-				DAE2E395251C5A2A00A8951C /* DataModel.swift */,
+				DA78BD41269A772E000EE3C9 /* TranslationWebServices */,
 				DAA5E547268C2A8000568EAA /* DrawingDocument.swift */,
+				DA78BD3D269A4804000EE3C9 /* Chapter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,12 +184,9 @@
 		DA4E0567243ADF3800CF8904 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA78BD3F269A63F5000EE3C9 /* NotesView */,
 				DA4E053A243AC8B400CF8904 /* ContentView.swift */,
-				DA156DD3244B8F2B00EE6A8B /* NotesView.swift */,
-				DA59243A244D508A002C3884 /* CanvasView.swift */,
 				DAEB76CF2523F2E2008AC40C /* NavigationViews.swift */,
-				DA4EB05D252D362100715431 /* DetailsView.swift */,
-				DA78BD3926939C39000EE3C9 /* DrawingWrapper.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,8 +204,37 @@
 			children = (
 				DAA5E549268C2B5500568EAA /* CoreDataManager.swift */,
 				DA78BD35268ED22F000EE3C9 /* DrawingManager.swift */,
+				DA78BD3B269A45CF000EE3C9 /* TranslationManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		DA78BD3F269A63F5000EE3C9 /* NotesView */ = {
+			isa = PBXGroup;
+			children = (
+				DA156DD3244B8F2B00EE6A8B /* NotesView.swift */,
+				DA4EB05D252D362100715431 /* DetailsView.swift */,
+				DA78BD3926939C39000EE3C9 /* DrawingWrapper.swift */,
+			);
+			path = NotesView;
+			sourceTree = "<group>";
+		};
+		DA78BD40269A7607000EE3C9 /* ESV */ = {
+			isa = PBXGroup;
+			children = (
+				DACFB30B24426A020033B318 /* ESVWebService.swift */,
+				DA4E0569243ADF5E00CF8904 /* ESVData.swift */,
+				DA78BD42269A7806000EE3C9 /* ESVPassageOptions.swift */,
+			);
+			path = ESV;
+			sourceTree = "<group>";
+		};
+		DA78BD41269A772E000EE3C9 /* TranslationWebServices */ = {
+			isa = PBXGroup;
+			children = (
+				DA78BD40269A7607000EE3C9 /* ESV */,
+			);
+			path = TranslationWebServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,16 +371,17 @@
 				DA4E0537243AC8B400CF8904 /* AppDelegate.swift in Sources */,
 				DA78BD38269399B5000EE3C9 /* DrawingViewController.swift in Sources */,
 				DAA5E548268C2A8000568EAA /* DrawingDocument.swift in Sources */,
-				DA59243B244D508A002C3884 /* CanvasView.swift in Sources */,
+				DA78BD43269A7806000EE3C9 /* ESVPassageOptions.swift in Sources */,
+				DA78BD3E269A4804000EE3C9 /* Chapter.swift in Sources */,
 				DA78BD3A26939C39000EE3C9 /* DrawingWrapper.swift in Sources */,
 				DA4E0539243AC8B400CF8904 /* SceneDelegate.swift in Sources */,
-				DACFB30C24426A020033B318 /* RestPostman.swift in Sources */,
-				DA4E056A243ADF5E00CF8904 /* VerseStructures.swift in Sources */,
+				DACFB30C24426A020033B318 /* ESVWebService.swift in Sources */,
+				DA4E056A243ADF5E00CF8904 /* ESVData.swift in Sources */,
 				DA4EB05E252D362100715431 /* DetailsView.swift in Sources */,
 				DA64C721268C30A400D521D7 /* DrawingDocModel.xcdatamodeld in Sources */,
 				DAEB76D02523F2E2008AC40C /* NavigationViews.swift in Sources */,
-				DAE2E396251C5A2A00A8951C /* DataModel.swift in Sources */,
 				DA4E053B243AC8B400CF8904 /* ContentView.swift in Sources */,
+				DA78BD3C269A45CF000EE3C9 /* TranslationManager.swift in Sources */,
 				DACFB30A243AEFEE0033B318 /* SampleStructures.swift in Sources */,
 				DAA5E54A268C2B5500568EAA /* CoreDataManager.swift in Sources */,
 				DA78BD36268ED22F000EE3C9 /* DrawingManager.swift in Sources */,
