@@ -40,6 +40,13 @@ class DrawingManager: ObservableObject {
         return Data()
     }
     
+    func getUuidByReference(reference: String, chapter: Int32) -> UUID {
+        if let doc = self.docs.first(where: {$0.book == reference.trimmingCharacters(in: CharacterSet(charactersIn: "1234567890: ")) && $0.chapter == chapter}) {
+            return doc.id
+        }
+        return UUID()
+    }
+    
     func addData(doc: DrawingDocument) {
         docs.append(doc)
         CoreDataManager.shared.addData(doc: doc)
