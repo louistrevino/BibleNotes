@@ -13,9 +13,9 @@ class DrawingViewController: UIViewController {
 
     lazy var canvas: PKCanvasView = {
         let v = PKCanvasView()
-        v.drawingPolicy = .anyInput
+//        v.drawingPolicy = .anyInput
         v.minimumZoomScale = 1
-        v.maximumZoomScale = 2
+        v.maximumZoomScale = 5
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
@@ -50,6 +50,7 @@ class DrawingViewController: UIViewController {
             canvas.drawing = drawing
         }
     }
+    
 
 }
 
@@ -58,5 +59,11 @@ class DrawingViewController: UIViewController {
 extension DrawingViewController: PKToolPickerObserver, PKCanvasViewDelegate {
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         drawingChanged(canvasView.drawing.dataRepresentation())
+        
     }
+    
+    func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
+        canvas.becomeFirstResponder()
+    }
+    
 }

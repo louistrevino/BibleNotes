@@ -23,3 +23,13 @@ struct NotesCanvasView: View {
         }
     }
 }
+
+struct NoteView: View {
+    @ObservedObject var manager : DrawingManager
+    var doc : DrawingDocument
+    var body: some View {
+        Text("\(doc.name)")
+        DrawingWrapper(manager: manager, id: doc.id)
+            .border(Color.gray)
+    }
+}
