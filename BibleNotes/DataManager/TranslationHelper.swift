@@ -10,7 +10,7 @@ import Foundation
 
 class TranslationHelper {
     
-    func convertVersesToAttributedString(verses: [Verse]) -> NSAttributedString {
+    static func convertVersesToAttributedString(verses: [Verse]) -> NSAttributedString {
         var verseArray = [String]()
         for verse in verses {
             verseArray.append("\(verse.number). \(verse.text)")
@@ -18,7 +18,8 @@ class TranslationHelper {
         
         return createAttributedString(stringArray: verseArray, attributedPart: verseArray.count) ?? NSMutableAttributedString(string: "")
     }
-    func createAttributedString(stringArray: [String], attributedPart: Int) -> NSMutableAttributedString? {
+    
+    static func createAttributedString(stringArray: [String], attributedPart: Int) -> NSMutableAttributedString? {
         
         let attributes = [NSAttributedString.Key: Any]()
         

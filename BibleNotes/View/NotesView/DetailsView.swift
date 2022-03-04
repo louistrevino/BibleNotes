@@ -17,23 +17,13 @@ struct DetailsView : View {
     @ObservedObject var manager : DrawingManager
 //    @ObservedObject var textOverlay : DrawingManager
     @State private var addNewShown = false
+    @State private var textStyle = UIFont.TextStyle.body
 
     var body: some View {
         VStack(alignment: .leading){
             HStack{
                 // TODO: set this up to where canvas opens in a second window
-               
-
-                ScrollView(.vertical) {
-                    LazyVStack(alignment: .leading){
-                        ForEach(self.vars.verses, id: \.id) { verse in
-                            Text("\(verse.number). \(verse.text)")
-                                .onTapGesture {
-                                    addData(verseInfo: "\(vars.reference):\(verse.number)")
-                                }
-                        }
-                    }
-                }
+                TextView(text: TranslationHelper.convertVersesToAttributedString(verses: self.vars.verses), textStyle: $textStyle)
                 .frame(width: 500)
                     .padding()
                         
