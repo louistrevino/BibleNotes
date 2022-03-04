@@ -15,7 +15,7 @@ struct DetailsView : View {
 //    @State var dmc = DataModelController()
     @State var updateDrawing = ""
     @ObservedObject var manager : DrawingManager
-    @ObservedObject var textOverlay : DrawingManager
+//    @ObservedObject var textOverlay : DrawingManager
     @State private var addNewShown = false
 
     var body: some View {
@@ -23,22 +23,20 @@ struct DetailsView : View {
             HStack{
                 // TODO: set this up to where canvas opens in a second window
                
-                        if(vars.showAnnotations) {
-                            TextOverlayDrawingWrapper(manager: manager, id: getUuidForDrawing(), subView: TextView(vars: vars, manager: manager))
-                        } else {
-                            ScrollView(.vertical) {
-                                LazyVStack(alignment: .leading){
-                                    ForEach(self.vars.verses, id: \.id) { verse in
-                                        Text("\(verse.number). \(verse.text)")
-                                            .onTapGesture {
-                                                addData(verseInfo: "\(vars.reference):\(verse.number)")
-                                            }
-                                    }
+
+                ScrollView(.vertical) {
+                    LazyVStack(alignment: .leading){
+                        ForEach(self.vars.verses, id: \.id) { verse in
+                            Text("\(verse.number). \(verse.text)")
+                                .onTapGesture {
+                                    addData(verseInfo: "\(vars.reference):\(verse.number)")
                                 }
-                            }
-                            .frame(width: 500)
-                                .padding()
                         }
+                    }
+                }
+                .frame(width: 500)
+                    .padding()
+                        
                     
                 if(vars.showCanvas) {
                     NavigationView {
@@ -65,9 +63,9 @@ struct DetailsView : View {
         addData(verseInfo: "new drawing")
     }
     
-    func getUuidForDrawing() -> UUID{
-        return textOverlay.getUuidByReference(reference: vars.overlayReference, chapter: Int32(vars.i))
-    }
+//    func getUuidForDrawing() -> UUID{
+//        return textOverlay.getUuidByReference(reference: vars.overlayReference, chapter: Int32(vars.i))
+//    }
 
 }
 
@@ -81,7 +79,7 @@ class Vars : ObservableObject{
     @Published var verses = [Verse]()
 }
 
-struct TextView : View {
+struct extraView : View {
     @ObservedObject var vars : Vars
     @ObservedObject var manager : DrawingManager
     
