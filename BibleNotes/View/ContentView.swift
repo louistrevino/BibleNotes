@@ -10,6 +10,7 @@ import SwiftUI
 import PencilKit
 
 
+@available(iOS 15, *)
 struct ContentView: View {
     
     @ObservedObject var translationManager = TranslationManager()

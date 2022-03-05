@@ -15,7 +15,7 @@ import Foundation
 //    var totalVerses : Int
 //}
 
-struct Verse : Identifiable {
+struct Verse : Identifiable, Equatable {
     let id = UUID()
     let number : Int
     let text : String

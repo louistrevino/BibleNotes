@@ -18,15 +18,29 @@ struct DetailsView : View {
 //    @ObservedObject var textOverlay : DrawingManager
     @State private var addNewShown = false
     @State private var textStyle = UIFont.TextStyle.body
-
+    @State private var selectedVerseTrigger = false
     var body: some View {
         VStack(alignment: .leading){
+            Button(action: {
+            addMultipleVerseData(verses: vars.versesSelected)
+                }) {
+                    Image(systemName: "textformat")
+                        .imageScale(.large)
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.white)
+                        .background(Color.purple)
+                        .clipShape(Circle())
+         
+                }
+                .padding()
             HStack{
                 // TODO: set this up to where canvas opens in a second window
-                TextView(text: TranslationHelper.convertVersesToAttributedString(verses: self.vars.verses), textStyle: $textStyle)
-                .frame(width: 500)
-                    .padding()
-                        
+                TextView(vars: vars, text: TranslationHelper.highlightText(verses: self.vars.verses, selectedVerses: vars.versesSelected), textStyle: $textStyle, selectedVerseTrigger: $selectedVerseTrigger)
+                    .frame(width: 500)
+                        .padding()
+                        .onChange(of: vars.versesSelected, perform: { _ in
+                            selectedVerseTrigger = false
+                        })
                     
                 if(vars.showCanvas) {
                     NavigationView {
@@ -44,13 +58,32 @@ struct DetailsView : View {
             .navigationBarTitle(self.vars.reference, displayMode: .automatic)
         }
     }
-        
+    
+    
     func addData(verseInfo: String) {
         manager.addData(doc: DrawingDocument(id: UUID(), data: Data(), name: verseInfo, book: vars.reference.trimmingCharacters(in: CharacterSet(charactersIn: "1234567890: ")), chapter: Int32(vars.i)));
     }
     
     func addData() {
         addData(verseInfo: "new drawing")
+    }
+    
+    func addMultipleVerseData(verses: [Verse]) {
+        var numbers = [Int]()
+        for verse in verses {
+            if !numbers.contains(verse.number) {
+                numbers.append(verse.number)
+            }
+        }
+        numbers.sort()
+        
+        var name = "\(vars.reference):"
+        for ref in numbers {
+            name.append("\(ref),")
+        }
+        name.removeLast()
+        vars.versesSelected = [Verse]()
+        addData(verseInfo: name)
     }
     
 //    func getUuidForDrawing() -> UUID{
@@ -67,30 +100,5 @@ class Vars : ObservableObject{
     @Published var reference = ""
     @Published var overlayReference = ""
     @Published var verses = [Verse]()
-}
-
-struct extraView : View {
-    @ObservedObject var vars : Vars
-    @ObservedObject var manager : DrawingManager
-    
-    var body: some View {
-        LazyVStack {
-            ForEach(self.vars.verses, id: \.id) { verse in
-                Text("\(verse.number). \(verse.text)")
-                    .onTapGesture {
-                        addData(verseInfo: "\(vars.reference):\(verse.number)")
-                    }
-            }
-        }
-        .frame(width: 500)
-            .padding()
-    }
-    
-    func addData(verseInfo: String) {
-        manager.addData(doc: DrawingDocument(id: UUID(), data: Data(), name: verseInfo, book: vars.reference.trimmingCharacters(in: CharacterSet(charactersIn: "1234567890: ")), chapter: Int32(vars.i)));
-    }
-    
-    func addData() {
-        addData(verseInfo: "new drawing")
-    }
+    @Published var versesSelected = [Verse]()
 }

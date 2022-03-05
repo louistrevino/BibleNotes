@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 
+@available(iOS 15, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
